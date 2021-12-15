@@ -18,7 +18,19 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
+
     </form>
+
+    <!-- creates button that takes you to the sign-up page -->
+    <form method="get" action="/signup.php">
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+
+
+
+
+    </form>
+
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
