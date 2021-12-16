@@ -2,6 +2,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 
+
 <article>
     <h1>Sign up</h1>
 
