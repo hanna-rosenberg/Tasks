@@ -33,11 +33,6 @@
         </div>
 
 
-        <!-- <div>
-            <label for="avatar">Choose your profile-picture</label>
-            <input type="file" accept=".jpg, .jpeg, .png" name="avatar" id="avatar" required>
-        </div> -->
-
         <button type="submit" class="btn btn-primary">Sign up</button>
 
     </form>
