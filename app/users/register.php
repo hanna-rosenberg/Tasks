@@ -17,7 +17,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['full-
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $fullname = $_POST['full-name'];
-    $database = new PDO('sqlite:' . __DIR__ . '/../database/database.db');
+
     $query = sprintf("INSERT INTO users (nickname, email, name, password) VALUES ('$username', '$email', '$fullname', '$password')");
     $statement = $database->query($query);
 }
