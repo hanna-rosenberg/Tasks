@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+session_start();
+
+
 // Check if both email and password exists in the POST request.
 if (isset($_POST['email'], $_POST['password'])) {
     $email = trim($_POST['email']);
