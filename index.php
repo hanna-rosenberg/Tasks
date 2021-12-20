@@ -7,8 +7,12 @@
 
     <?php if (isset($_SESSION['user'])) : ?>
         <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
-        <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
+        <?php
+        if (isset($_SESSION['user']['profile_picture'])) :
+        ?>
+            <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
 
+        <?php endif; ?>
     <?php endif; ?>
 </article>
 
