@@ -35,12 +35,20 @@ if (isset($_FILES['avatar'])) {
     // skriv rad 27-33 som en funktion sen istället, detta kommer användas när man skall byta e-post osv också. här hämtas 
     // det som är nytt in och visas istället för det som fanns i sessionen sedan tidigare. (uppdaterar session-variabeln efter vi bytt bild)
 }
-
-// if (isset($message)) {
-//     echo $message;
-// };
-
-redirect('/index.php');
 ?>
+
+<?php if (isset($_SESSION['user'])) : ?>
+    <p>You have addad a profile picture!</p>
+    <?php
+    if (isset($_SESSION['user']['profile_picture'])) :
+    ?>
+        <img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
+
+<?php endif;
+endif; ?>
+
+
+
+
 
 <!-- <img src="<?= $destination ?>"> -->

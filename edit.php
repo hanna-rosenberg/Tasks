@@ -16,5 +16,15 @@ Tips från V är att ha olika formlär för de olika fälten. -->
 
 </form>
 
+<form action="app/users/edit.php" method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="email">Change your email-adress</label>
+        <input type="text" name="email" id="emial" required>
+        <button type="submit">Save</button>
+    </div>
+
+</form>
+
 
 <?php require __DIR__ . '/views/footer.php'; ?>
