@@ -35,6 +35,34 @@ if (isset($_FILES['avatar'])) {
     // skriv rad 27-33 som en funktion sen istället, detta kommer användas när man skall byta e-post osv också. här hämtas 
     // det som är nytt in och visas istället för det som fanns i sessionen sedan tidigare. (uppdaterar session-variabeln efter vi bytt bild)
 }
+// 
+?>
+<?php
+
+// if (isset($_SESSION['newemail'])) {
+
+//     $new = trim(filter_var($_SESSION['user']['newemail'], FILTER_SANITIZE_STRING));
+
+//     $insertSQL = ("UPDATE users SET email = :new WHERE id = :id");
+
+//     $sql = $database->prepare($insertSQL);
+
+//     $sql->bindParam(':new', $new, PDO::PARAM_STR);
+
+//     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+
+//     $sql->execute();
+
+//     $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+
+//     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+
+//     $sql->execute();
+
+//     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+// }
+
+// 
 ?>
 
 <?php if (isset($_SESSION['user'])) : ?>
