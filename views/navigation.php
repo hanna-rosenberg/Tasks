@@ -13,18 +13,19 @@
         <li class="nav-item">
             <?php if (isset($_SESSION['user'])) : ?>
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
-            <?php else : ?>
-                <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Sign in</a>
-            <?php endif; ?>
-        </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/edit.php' ? 'active' : ''; ?>" href="/edit.php">Edit profile</a>
         </li>
 
-        <!-- skall bara synas när man är inloggad men har inte kommit dit än -->
-        <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/edit.php.php' ? 'active' : ''; ?>" href="/edit.php">Edit your profile</a>
-        </li>
+    <?php else : ?>
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Sign in</a>
+    <?php endif; ?>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
+    </li>
+
     </ul>
 </nav>

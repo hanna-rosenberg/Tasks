@@ -12,8 +12,8 @@
         ?>
             <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
 
-        <?php endif; ?>
-    <?php endif; ?>
+    <?php endif;
+    endif; ?>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
