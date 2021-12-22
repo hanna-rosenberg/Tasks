@@ -23,9 +23,10 @@
     <?php endif; ?>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
-    </li>
-
+    <?php if (!isset($_SESSION['user'])) : ?>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
+        </li>
+    <?php endif; ?>
     </ul>
 </nav>
