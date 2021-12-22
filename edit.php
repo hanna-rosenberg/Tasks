@@ -15,15 +15,37 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         <button type="submit" class="btn btn-secondary">Save</button>
     </div>
 
+    <!-- här kollar jag om message är satt (se den andra edit.php) Om den är det, så echoar jag ut meddelandet "Your profile pic has changed", 
+  sedan unsetar jag session message och visar den nya bilden-->
+    <?php if (isset($_SESSION['message'])) :
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+
+        if (isset($_SESSION['user']['profile_picture'])) :
+    ?>
+            <img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
+
+    <?php endif;
+    endif; ?>
+
 </form>
 
 <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-        <label for="newemail">Change your email-address</label>
+        <label for="email">Change your email-address</label>
         <input class="form-control" type="email" name="email" id="email" placeholder="email@email.com" required>
         <br>
         <button type="submit" class="btn btn-secondary">Save</button>
     </div>
 </form>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+<!-- här kollar jag om det emailMessage är satt i SESSION. se andra edit.php. om den är satt visas meddelandet
+"your mail has changed" -->
+<?php if (isset($_SESSION['emailMessage'])) :
+    echo $_SESSION['emailMessage'];
+    unset($_SESSION['emailMessage']);
+?>
+
+
+<?php endif;
+require __DIR__ . '/views/footer.php'; ?>

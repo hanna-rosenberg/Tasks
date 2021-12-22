@@ -17,6 +17,17 @@
             <small class="form-text">Please provide the your password (passphrase).</small>
         </div>
 
+
+        <!-- Om det fastnat ett error i sessionen = användaren skrev in fel lösenord eller email, så skall ett errormeddelande skrivas ut på sidan. 
+     Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden. -->
+
+        <?php if (isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
+
+        ?>
+
         <button type="submit" class="btn btn-primary">Login</button>
 
     </form>
