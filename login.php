@@ -19,22 +19,25 @@
 
 
         <!-- Om det fastnat ett error i sessionen = användaren skrev in fel lösenord eller email, så skall ett errormeddelande skrivas ut på sidan. 
-     Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden. -->
+     Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden. Funkar bara om man skiver in 
+    fel lösenord på en användare vars epost finns i databasen.-->
 
-        <?php if (isset($_SESSION['error'])) {
+        <?php if (isset($_SESSION['error'])) :
             echo $_SESSION['error'];
             unset($_SESSION['error']);
-        }
-
+        endif;
         ?>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+
+
+        <button type="submit" class="btn btn-dark">Login</button>
+
 
     </form>
-
+    <br>
     <!-- creates button that takes you to the sign-up page -->
     <form method="get" action="/signup.php">
-        <button type="submit" class="btn btn-primary">Sign up</button>
+        <button type="submit" class="btn btn-dark">Sign up</button>
     </form>
 
 

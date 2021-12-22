@@ -43,7 +43,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     } else {
 
         // här skapar jag upp en error-session (se login.php). 
-        $_SESSION['error'] = "wrong email or password";
+        $_SESSION['error'] = "Wrong password";
         redirect('/login.php');
     }
 }

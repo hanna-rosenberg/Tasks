@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
     <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
     <ul class="navbar-nav">
@@ -23,10 +24,12 @@
     <?php endif; ?>
     </li>
 
+    <!-- Gör så att sign upp bara syns för den som inte är inloggad -->
     <?php if (!isset($_SESSION['user'])) : ?>
         <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
         </li>
+
     <?php endif; ?>
     </ul>
 </nav>
