@@ -1,4 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+/* style for HOME */
+.home-picture {
+  display: inline-block;
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
 /* style for EDIT */
 
-body {
+.picture-form {
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+  margin-bottom: 1rem;
 }
+
+.email-form {
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+.password-form {
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.profile-picture {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.profile-picture img {
+  display: inline-block;
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* style for NAVIGATION */
+.nav-picture {
+  display: flex;
+  width: 100vw;
+  justify-content: flex-end;
+}
+
+.nav-picture img {
+  display: inline-block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.navbar-nav {
+  align-items: center;
+  height: 5rem;
+}
+
+/* @media only screen and (min-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+} */

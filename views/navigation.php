@@ -16,7 +16,7 @@
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/edit.php' ? 'active' : ''; ?>" href="/edit.php">Edit profile</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/edit.php' ? 'active' : ''; ?>" href="/edit.php">Edit</a>
         </li>
 
     <?php else : ?>
@@ -31,5 +31,15 @@
         </li>
 
     <?php endif; ?>
+
+
     </ul>
+
+    <?php if (isset($_SESSION['user']['profile_picture'])) :
+    ?>
+        <div class="nav-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
+
+    <?php
+    endif; ?>
+
 </nav>

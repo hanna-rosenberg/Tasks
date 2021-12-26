@@ -47,7 +47,7 @@ if (isset($_FILES['avatar'])) {
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // ett meddelande som skrivs ut i den andra edit.php ifall man har laddat upp en fil, om SESSION message isset.
-    $_SESSION['message'] = "The file is uploaded";
+    $_SESSION['message'] = "This is your profile-picure:";
 }
 
 ?>
@@ -82,7 +82,7 @@ if (isset($_POST['email'])) {
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // ett meddelande som skrivs ut i den andra edit.php ifall man har bytt e-post, om SESSION emailMessage isset.
-    $_SESSION['emailMessage'] = "Your email has changed";
+    $_SESSION['emailMessage'] = "You just changed your email-adress to: " . $_SESSION['user']['email'];
 }
 
 

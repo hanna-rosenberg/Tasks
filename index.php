@@ -13,7 +13,7 @@
         // om du är inloggad och har en profilbild visas även din profilbild
         if (isset($_SESSION['user']['profile_picture'])) :
         ?>
-            <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>">
+            <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
     <?php endif;
     endif; ?>
