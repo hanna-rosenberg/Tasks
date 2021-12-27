@@ -44,6 +44,14 @@
   border-radius: 50%;
 }
 
+.btn-dark {
+  margin-top: 1rem;
+}
+
+input[type='file'] {
+  width: 100vw;
+}
+
 /* style for NAVIGATION */
 .nav-picture {
   display: flex;

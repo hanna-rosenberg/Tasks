@@ -12,7 +12,6 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         <div class="mb-3">
             <label for="avatar">Choose your profile-picture</label>
             <input type="file" accept=".jpg, .jpeg, .png" name="avatar" id="avatar" required>
-            <br>
             <button type="submit" class="btn btn-dark">Save</button>
 
         </div>
@@ -38,7 +37,7 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         <div class="mb-3">
             <label for="email">Change your email-address</label>
             <input class="form-control" type="email" name="email" id="email" placeholder="email@email.com" required>
-            <br>
+
             <button type="submit" class="btn btn-dark">Save</button>
         </div>
 
@@ -59,10 +58,18 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         <div class="mb-3">
             <label for="password">Change your password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <br>
+
             <button type="submit" class="btn btn-dark">Save</button>
         </div>
     </form>
+
+
+    <?php if (isset($_SESSION['passwordMessage'])) :
+        echo $_SESSION['passwordMessage'];
+        unset($_SESSION['passwordMessage']);
+
+    endif;
+    ?>
 </div>
 <?php
 require __DIR__ . '/views/footer.php'; ?>

@@ -47,13 +47,14 @@ if (isset($_FILES['avatar'])) {
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // ett meddelande som skrivs ut i den andra edit.php ifall man har laddat upp en fil, om SESSION message isset.
-    $_SESSION['message'] = "This is your profile-picure:";
+    $_SESSION['message'] = "Profile-picture is sucessfully uploaded";
 }
 
 ?>
 <?php
 
-// om det ligger något i POST från forumläret som heter email så skall koden köras. 
+// Här kommer kod för att byta e-post! 
+// Om det ligger något i POST från forumläret som heter email så skall koden köras. 
 if (isset($_POST['email'])) {
 
     // hämtar, "rengör" det man skrivit in i formuläret, ser till att det är en email, och lägger den då nya e-post-adressen
@@ -84,10 +85,47 @@ if (isset($_POST['email'])) {
     // ett meddelande som skrivs ut i den andra edit.php ifall man har bytt e-post, om SESSION emailMessage isset.
     $_SESSION['emailMessage'] = "You just changed your email-adress to: " . $_SESSION['user']['email'];
 }
+?>
 
+
+<!-- Här kommer kod för att byta lösenord -->
+<?php
+if (isset($_POST['password'])) {
+
+    // hämtar,"hashar" det man skrivit in i formuläret och lägger det nya lösenordet 
+    // i en variabel som heter $newPassword.
+    $newPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    // Query som uppdaterar den inloggade användarens lösenord i databasen. 
+    $insertSQL = ("UPDATE users SET password = :newPassword WHERE id = :id");
+
+    $sql = $database->prepare($insertSQL);
+
+    $sql->bindParam(':newPassword', $newPassword, PDO::PARAM_STR);
+
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+
+    $sql->execute();
+
+    // här hämtas allting ut på nytt från databasen, eftersom något kanske har ändrats. I detta fall lösenordet.
+    $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+
+    $sql->execute();
+
+    // hämtar de nya uppgifterna från user arrayen och lägger dom i SESSION. 
+    $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+
+    // ett meddelande som skrivs ut i den andra edit.php ifall man har bytt e-post, om SESSION emailMessage isset.
+    $_SESSION['passwordMessage'] = "Your password is changed";
+}
 
 
 ?>
+
+
+
 
 <?php
 redirect('/edit.php')
