@@ -49,7 +49,7 @@
 }
 
 input[type='file'] {
-  width: 100vw;
+  width: 100%;
 }
 
 /* style for NAVIGATION */
@@ -68,22 +68,41 @@ input[type='file'] {
   border-radius: 50%;
 }
 
+.nav-item {
+  width: 100px;
+}
+
+.first-picture {
+  display: flex;
+  width: 100px;
+}
+
+.first-picture img {
+  display: inline-block;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.first-picture {
+  display: none;
+}
+
+/* 
 .navbar-nav {
   align-items: center;
   height: 5rem;
-}
+} */
 
 /* MOBILE-NAV */
-@media only screen and (max-width: 768px) {
-  .navbar-nav {
-    font-size: 0.7rem;
+@media only screen and (max-width: 991px) {
+  .nav-picture {
+    display: none;
   }
 
-  .navbar-brand {
-    font-size: 0.9rem;
-  }
-
-  .navbar-expand .navbar-nav .nav-link {
-    padding-right: 0rem;
+  .first-picture {
+    display: block;
   }
 }

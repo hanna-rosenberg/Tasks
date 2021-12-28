@@ -1,4 +1,11 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+
+    <?php if (isset($_SESSION['user']['profile_picture'])) :
+    ?>
+        <div class="first-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
+
+    <?php
+    endif; ?>
 
     <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
@@ -11,28 +18,22 @@
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">About</a>
         </li>
 
+
         <li class="nav-item">
             <?php if (isset($_SESSION['user'])) : ?>
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/edit.php' ? 'active' : ''; ?>" href="/edit.php">Edit</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/edit.php">Edit profile</a>
         </li>
-
     <?php else : ?>
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Sign in</a>
-    <?php endif; ?>
-    </li>
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/login.php">Login</a>
 
-    <!-- Gör så att sign upp bara syns för den som inte är inloggad -->
-    <?php if (!isset($_SESSION['user'])) : ?>
         <li class="nav-item">
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Sign up</a>
         </li>
-
     <?php endif; ?>
-
-
+    </li>
     </ul>
 
     <?php if (isset($_SESSION['user']['profile_picture'])) :
@@ -41,5 +42,6 @@
 
     <?php
     endif; ?>
+
 
 </nav>

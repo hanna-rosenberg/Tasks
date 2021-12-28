@@ -20,8 +20,8 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['full-
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $fullname = trim(filter_var($_POST['full-name'], FILTER_SANITIZE_STRING));
 
-    // här läggs det inskriva in i databasen på ett säkrare sätt med hjälp av tomma "placeholders". 
-    $sql = "INSERT INTO users (nickname, email, name, password) VALUES (':username', ':email', ':fullname', ':password')";
+    // här läggs det inskriva in i databasen på ett säkrare sätt med hjälp av tomma "placeholders". BEHÖVS DENNA?
+    // $sql = "INSERT INTO users (nickname, email, name, password) VALUES (':username', ':email', ':fullname', ':password')";
 
     $statement = $database->prepare("INSERT INTO users (nickname, email, name, password) VALUES (:username, :email, :fullname, :password)");
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
@@ -33,4 +33,4 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['full-
     $statement->execute();
 }
 
-redirect('/index.php');
+redirect('/login.php');
