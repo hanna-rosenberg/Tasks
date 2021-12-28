@@ -34,6 +34,14 @@
                 </div>
 
     </form>
+    <!-- 
+Till för att skriva ut titeln på din task, men tror inte jag skall ha kvar detta. Testade mest. -->
+    <?php if (isset($_SESSION['taskMessage'])) :
+        echo $_SESSION['taskMessage'];
+        unset($_SESSION['taskMessage']);
+
+    endif;
+    ?>
 
 </article>
 

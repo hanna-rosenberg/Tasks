@@ -22,6 +22,9 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'])) {
     $statement->execute();
 
     $_SESSION['user'] = $statement->fetch(PDO::FETCH_ASSOC);
+
+    //skriver ut title på din task med hjälp av session men skall nog inte vara så sen. testade bara. 
+    $_SESSION['taskMessage'] =  $_POST['title'];
 }
 
 redirect('/tasks.php');
