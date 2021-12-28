@@ -90,6 +90,10 @@ input[type='file'] {
   display: none;
 }
 
+.navbar-brand {
+  margin-right: 3rem;
+}
+
 /* 
 .navbar-nav {
   align-items: center;
@@ -104,5 +108,13 @@ input[type='file'] {
 
   .first-picture {
     display: block;
+  }
+
+  .navbar-brand {
+    margin-right: 1rem;
+  }
+
+  .nav-item {
+    text-align: right;
   }
 }
