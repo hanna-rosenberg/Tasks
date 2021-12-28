@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+* {
+  font-family: 'Nunito Sans';
+}
 /* style for HOME */
 .home-picture {
   display: inline-block;
@@ -11,12 +14,37 @@
   overflow: hidden;
   border-radius: 50%;
 }
+
+h1 {
+  font-family: 'Rock 3D';
+  padding-bottom: 2rem;
+  color: #5d6063;
+}
+
+.greeting {
+  color: rgb(41, 41, 41);
+}
+
+.homePage {
+  width: 300px;
+}
+
+.py-5 .frontPageItems h1 {
+  text-align: center;
+}
+
+.frontPageImg {
+  display: flex;
+
+  justify-content: center;
+}
 /* style for EDIT */
 
 .picture-form {
   background-color: rgb(243, 243, 243);
   padding: 2rem;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .email-form {
@@ -56,7 +84,7 @@ input[type='file'] {
 /* style for NAVIGATION */
 .nav-picture {
   display: flex;
-  width: 100vw;
+  /* width: 100vw; */
   justify-content: flex-end;
 }
 
@@ -71,6 +99,7 @@ input[type='file'] {
 
 .nav-item {
   width: 100px;
+  font-weight: bolder;
 }
 
 .first-picture {
@@ -93,6 +122,25 @@ input[type='file'] {
 
 .navbar-brand {
   margin-right: 3rem;
+  font-weight: bolder;
+}
+
+.logo h1,
+p {
+  color: white;
+  margin-bottom: -1;
+}
+
+.navbar h1 {
+  font-size: 3rem;
+  margin-right: -3px;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 100%;
+  align-items: center;
 }
 
 /* STYLE FOR TASKS */
@@ -114,6 +162,33 @@ input[type='file'] {
   background-color: rgb(243, 243, 243);
   padding: 2rem;
   margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+/* .edit {
+  height: 1rem;
+  width: 1rem;
+  color: white;
+  background-color: rgb(245, 118, 118);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+} */
+
+.edit img {
+  height: 1.3rem;
+}
+.delete {
+  /* text-align: center; */
+}
+
+table {
+  margin-top: 2rem;
+}
+.delete a {
+  color: rgb(43, 43, 43);
+  background-color: rgb(218, 218, 218);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
 }
 
 /* MOBILE-NAV */
@@ -132,5 +207,9 @@ input[type='file'] {
 
   .nav-item {
     text-align: right;
+  }
+
+  .logo {
+    width: unset;
   }
 }

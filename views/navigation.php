@@ -7,7 +7,11 @@
     <?php
     endif; ?>
 
-    <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
+    <!-- <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a> -->
+    <div class="logo">
+        <h1>o</h1>
+        <p>rganize me</p>
+    </div>
 
     <ul class="navbar-nav">
         <li class="nav-item">

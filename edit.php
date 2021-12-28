@@ -6,6 +6,7 @@ Denna sidan skall bara synas när man är inloggad och kanske inte ligga där de
 lägga till och byta profilbild med mera. 
 
 Tips från V är att ha olika formlär för de olika fälten. -->
+<h1>Edit Profile</h1>
 <div class="picture-form">
     <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
 

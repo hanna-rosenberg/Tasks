@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+$statement = $database->query("SELECT * FROM tasks");
+$tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST['title'], $_POST['task'], $_POST['deadline'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
@@ -18,13 +20,16 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'])) {
     $statement->bindParam(':placeholderTask', $task, PDO::PARAM_STR);
     $statement->bindParam(':placeholderDeadline', $date, PDO::PARAM_STR);
 
-    // det hela körs. 
+    // det hela körs.
     $statement->execute();
 
     $_SESSION['user'] = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //skriver ut title på din task med hjälp av session men skall nog inte vara så sen. testade bara. 
-    $_SESSION['taskMessage'] =  $_POST['title'];
+    //skriver ut title på din task med hjälp av session men skall nog inte vara så sen. testade bara.
+    $_SESSION['titleMessage'] = $_POST['title'];
 }
+
+
+
 
 redirect('/tasks.php');
