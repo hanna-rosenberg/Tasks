@@ -6,14 +6,19 @@
     <p>This is the tasks page.</p>
 
 
-    <form action="app/users/tasks.php" method="post" enctype="multipart/form-data">
+    <form action="app/users/tasks.php" method="post">
 
         <div class="mb-3">
             <label for="task">task</label>
             <input class="form-control" type="task" name="task" id="task" placeholder="write a task" required>
-            <small class="form-text">Please provide a desired task</small>
+
+
+            <label for="date">date</label>
+            <input class="date" type="date" name="date" id="date" placeholder="pick a date" required>
+
+
+            <button type="submit" class="submitTask">Add</button>
         </div>
-        <button type="submit" class="btn btn-dark">Add</button>
     </form>
 
 </article>
