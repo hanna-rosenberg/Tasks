@@ -30,6 +30,7 @@
   padding: 2rem;
   margin-bottom: 1rem;
 }
+
 .profile-picture {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -103,6 +104,16 @@ input[type='file'] {
   display: inline-block;
   font-weight: 400;
   height: 30px;
+}
+
+.tasks .form-control {
+  margin-bottom: 2rem;
+}
+
+.name-form {
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* MOBILE-NAV */
