@@ -15,7 +15,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">About</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/tasks.php' ? 'active' : ''; ?>" href="/tasks.php">My tasks</a>
         </li>
 
 
