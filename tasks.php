@@ -12,7 +12,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
     <form action="app/users/tasks.php" method="post">
         <div class="name-form">
             <div class="mb-3 tasks">
-                <label for="title">Task-name</label>
+                <label for="title">Task-title</label>
                 <input class="form-control" type="title" name="title" id="title" required>
 
             </div>
