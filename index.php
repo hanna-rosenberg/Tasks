@@ -23,17 +23,20 @@
                 <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
 
-        <?php endif;
-        endif; ?>
-        <p class="greeting">What do you want to do?</p>
-        <form method="get" action="/tasks.php">
-            <button type="submit" class="btn btn-dark">Create task</button>
-        </form>
+            <?php endif;
+        endif;
 
-        <form method="get" action="/lists.php">
-            <button type="submit" class="btn btn-dark">Create list</button>
-        </form>
-    </div>
+        if (isset($_SESSION['user'])) : ?>
+
+            <p class="greeting">What do you want to do?</p>
+            <form method="get" action="/tasks.php">
+                <button type="submit" class="btn btn-dark">Create task</button>
+            </form>
+
+            <form method="get" action="/lists.php">
+                <button type="submit" class="btn btn-dark">Create list</button>
+            </form>
+        <?php endif; ?>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -54,18 +54,12 @@ Till för att skriva ut titeln på din task, men tror inte jag skall ha kvar det
 
     <tbody>
         <tr>
-            <?php foreach ($tasks as $task) :
-
-
-            ?>
-                <td class="done"> Yes</td>
-                <td class="title"><?php echo $task['title']; ?></td>
-                <td class="description"><?php echo $task['description']; ?></td>
-                <td class="deadline"><?php echo $task['deadline']; ?> <br><br><?php
-                                                                            endforeach; ?>?></td>
-                <td class="edit"><a href="#"><img src="/assets/images/edit.png"></a></td>
-
-                <td class="delete"><a href="#">x</a></td>
+            <td class="done">Done?</td>
+            <td class="title">Title? </td>
+            <td class="description">Description?</td>
+            <td class="deadline">2022-01-02</td>
+            <td class="edit"><a href="#"><img src="/assets/images/edit.png"></a></td>
+            <td class="delete"><a href="#">x</a></td>
         </tr>
         <!-- <tr>
             <th scope="row">Yes</th>
