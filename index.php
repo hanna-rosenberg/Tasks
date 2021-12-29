@@ -11,18 +11,29 @@
         <h1><?php echo $config['title']; ?></h1>
         <!-- <p>This is the home page.</p> -->
     </div>
-    <!-- om man är inloggad visas ditt användarnamn efter Welcome -->
-    <?php if (isset($_SESSION['user'])) : ?>
-        <p class="greeting">Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
-        <?php
+    <div class="contentFrontpage">
+        <!-- om man är inloggad visas ditt användarnamn efter Welcome -->
+        <?php if (isset($_SESSION['user'])) : ?>
+            <p class="greeting">Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+            <?php
 
-        // om du är inloggad och har en profilbild visas även din profilbild
-        if (isset($_SESSION['user']['profile_picture'])) :
-        ?>
-            <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
+            // om du är inloggad och har en profilbild visas även din profilbild
+            if (isset($_SESSION['user']['profile_picture'])) :
+            ?>
+                <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
-    <?php endif;
-    endif; ?>
+
+        <?php endif;
+        endif; ?>
+        <p class="greeting">What do you want to do?</p>
+        <form method="get" action="/tasks.php">
+            <button type="submit" class="btn btn-dark">Create task</button>
+        </form>
+
+        <form method="get" action="/lists.php">
+            <button type="submit" class="btn btn-dark">Create list</button>
+        </form>
+    </div>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

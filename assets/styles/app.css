@@ -9,10 +9,12 @@
 .home-picture {
   display: inline-block;
   position: relative;
-  width: 15rem;
+  width: 6rem;
   height: 15rem;
   overflow: hidden;
   border-radius: 50%;
+  align-self: center;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -23,6 +25,7 @@ h1 {
 
 .greeting {
   color: rgb(41, 41, 41);
+  align-self: center;
 }
 
 .homePage {
@@ -37,6 +40,17 @@ h1 {
   display: flex;
 
   justify-content: center;
+}
+
+.contentFrontpage {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  flex-direction: column;
+}
+
+.contentFrontpage form {
+  align-self: center;
 }
 /* style for EDIT */
 

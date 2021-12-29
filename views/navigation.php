@@ -33,6 +33,10 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/lists.php' ? 'active' : ''; ?>" href="/lists.php">Lists</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
 
 
