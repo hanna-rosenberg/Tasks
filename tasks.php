@@ -6,6 +6,28 @@
 $statement = $database->query("SELECT * FROM tasks");
 $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
 
+<!-- NYTT TEST -->
+<?php
+
+// Kallar på funktionen som definierats nedan, så att den körs.
+$allTasks = fetchAllTasks($database);
+?>
+
+<?php
+
+// Alla funktioner ska egentligen ligga i functions.php, får flytta det sen.
+
+function fetchAllTasks(PDO $database): array
+{
+    $sql = $database->prepare('SELECT * FROM tasks');
+    $sql->execute();
+
+    $allTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $allTasks;
+}
+
+?>
+
 <article>
     <h1>My Tasks</h1>
 
@@ -53,13 +75,51 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
 
     <tbody>
         <tr>
-            <td class="done">Yes
+
+            <!-- // NYTT TEST -->
+
             </td>
-            <td class="title">Title? </td>
-            <td class="description">Description?</td>
-            <td class="deadline">2022-01-02</td>
-            <td class="edit"><a href="#"><img src="/assets/images/edit.png"></a></td>
-            <td class="delete"><a href="#">x</a></td>
+
+
+            <td class="done">
+                Yes
+            </td>
+
+            <td class="title"><?php foreach ($allTasks as $taskItem) : ?>
+
+                    <ul>
+                        <li><?= $taskItem['title']; ?></li>
+                    </ul>
+
+                <?php endforeach; ?>
+
+            </td>
+
+            <td class="description">
+                <?php foreach ($allTasks as $taskItem) : ?>
+
+                    <ul>
+                        <li><?= $taskItem['description']; ?></li>
+                    </ul>
+
+                <?php endforeach; ?>
+
+            </td>
+
+            <td class="deadline">
+                <?php foreach ($allTasks as $taskItem) : ?>
+
+                    <ul>
+                        <li><?= $taskItem['deadline']; ?></li>
+                    </ul>
+
+                <?php endforeach; ?>
+            </td>
+
+            <td class="edit"><a href="#"><img src="/assets/images/edit.png"></a>
+
+            </td>
+            <td class="delete"><a href="#">x</a></td><br>
         </tr>
         <!-- <tr>
             <th scope="row">Yes</th>
