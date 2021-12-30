@@ -23,7 +23,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['full-
     // här läggs det inskriva in i databasen på ett säkrare sätt med hjälp av tomma "placeholders". BEHÖVS DENNA?
     // $sql = "INSERT INTO users (nickname, email, name, password) VALUES (':username', ':email', ':fullname', ':password')";
 
-    $statement = $database->prepare("INSERT INTO users (nickname, email, name, password) VALUES (:username, :email, :fullname, :password)");
+    $statement = $database->prepare("INSERT INTO users (username, email, name, password) VALUES (:username, :email, :fullname, :password)");
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);

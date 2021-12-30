@@ -1,5 +1,6 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
+
 <?php
 
 $statement = $database->query("SELECT * FROM tasks");
@@ -33,8 +34,6 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
                 </div>
 
     </form>
-    <!-- 
-Till för att skriva ut titeln på din task, men tror inte jag skall ha kvar detta. Testade mest. -->
 
 
 </article>
@@ -54,7 +53,8 @@ Till för att skriva ut titeln på din task, men tror inte jag skall ha kvar det
 
     <tbody>
         <tr>
-            <td class="done">Done?</td>
+            <td class="done">Yes
+            </td>
             <td class="title">Title? </td>
             <td class="description">Description?</td>
             <td class="deadline">2022-01-02</td>

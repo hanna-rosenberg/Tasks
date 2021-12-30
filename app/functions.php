@@ -8,8 +8,11 @@ function redirect(string $path)
     exit;
 }
 
-function whenLoggedIn()
-{
-    $online = isset($_SESSION['user']);
-    return $online;
-};
+// function showList($database)
+// {
+//     $sql = $database->prepare("SELECT * FROM lists WHERE user_id = :id");
+//     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+//     $sql->execute();
+//     $myList = $sql->fetch(PDO::FETCH_ASSOC);
+//     return $myList;
+// };

@@ -2,8 +2,27 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 <?php
 
-$statement = $database->query("SELECT * FROM tasks");
-$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
+// $statement = $database->query("SELECT * FROM tasks");
+// $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// Kallar på funktionen som definierats nedan, så att den körs.
+$allLists = fetchAllLists($database);
+?>
+
+<?php
+
+// Alla funktioner ska egentligen ligga i functions.php, får flytta det sen.
+
+function fetchAllLists(PDO $database): array
+{
+    $sql = $database->prepare('SELECT * FROM lists');
+    $sql->execute();
+
+    $allLists = $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $allLists;
+}
+
+?>
 
 <article>
     <h1>My Lists</h1>
@@ -16,7 +35,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
                 <input class="form-control" type="listTitle" name="listTitle" id="listTitle" required>
 
             </div>
-            <!-- 
+            <!--
             <div class="task-form">
                 <div class="mb-3 tasks">
                     <label for="task">Task</label>
@@ -36,5 +55,19 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
 
 
 
+
+
+    <br>
+    <h3>My TODO:</h3>
+
+    <!-- En Foreach i databasens 'lists' -->
+    <?php foreach ($allLists as $listItem) : ?>
+
+
+        <ul>
+            <li><?= $listItem['title']; ?></li>
+        </ul>
+
+    <?php endforeach; ?>
 
     <?php require __DIR__ . '/views/footer.php'; ?>
