@@ -3,8 +3,9 @@
 
 <?php
 
-$statement = $database->query("SELECT * FROM tasks");
-$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
+//$statement = $database->query("SELECT * FROM tasks");
+//$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); 
+?>
 
 <!-- NYTT TEST -->
 <?php
@@ -74,65 +75,57 @@ function fetchAllTasks(PDO $database): array
     </thead>
 
     <tbody>
+
         <tr>
+            <?php foreach ($allTasks as $taskItem) : ?>
+                <td class="done">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="checkbox" name="checkbox">
+                            <label for="horns"></label>
 
-            <!-- // NYTT TEST -->
+                        </li>
+                    </ul>
+                </td>
 
-            </td>
-
-
-            <td class="done">
-                Yes
-            </td>
-
-            <td class="title"><?php foreach ($allTasks as $taskItem) : ?>
-
+                <td class="title">
                     <ul>
                         <li><?= $taskItem['title']; ?></li>
                     </ul>
+                </td>
 
-                <?php endforeach; ?>
 
-            </td>
-
-            <td class="description">
-                <?php foreach ($allTasks as $taskItem) : ?>
-
+                <td class="description">
                     <ul>
                         <li><?= $taskItem['description']; ?></li>
                     </ul>
+                </td>
 
-                <?php endforeach; ?>
 
-            </td>
-
-            <td class="deadline">
-                <?php foreach ($allTasks as $taskItem) : ?>
-
+                <td class="deadline">
                     <ul>
                         <li><?= $taskItem['deadline']; ?></li>
                     </ul>
+                </td>
 
-                <?php endforeach; ?>
-            </td>
 
-            <td class="edit"><a href="#"><img src="/assets/images/edit.png"></a>
+                <td class="edit">
+                    <ul>
+                        <li> <a href="#"><img src="/assets/images/edit.png"></a></li>
+                    </ul>
+                </td>
 
-            </td>
-            <td class="delete"><a href="#">x</a></td><br>
+
+                <td class="delete">
+                    <ul>
+                        <li><a href="#">x</a></li>
+                    </ul>
+                </td>
+
+
         </tr>
-        <!-- <tr>
-            <th scope="row">Yes</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Thornton</td>
-        </tr>
-        <tr>
-            <th scope="row">Yes</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>Thornton</td>
-        </tr> -->
+    <?php endforeach; ?>
+
     </tbody>
 </table>
 

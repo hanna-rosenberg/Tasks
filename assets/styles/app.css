@@ -179,6 +179,12 @@ p {
   margin-top: 2rem;
 }
 
+ul li {
+  list-style-type: none;
+}
+ul {
+  padding-left: 0;
+}
 /* .edit {
   height: 1rem;
   width: 1rem;

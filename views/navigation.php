@@ -19,8 +19,6 @@
         </li>
 
 
-
-
         <?php if (isset($_SESSION['user'])) : ?>
 
             <li class="nav-item">

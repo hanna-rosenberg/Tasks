@@ -34,7 +34,6 @@ if (isset($_FILES['avatar'])) {
     // här körs det. 
     $sql->execute();
 
-
     // här hämtas allting ut på nytt, eftersom något kanske har ändrats. när jag skriver ut $_SESSION user avatar på sidan så är det
     // den uppdaterade bilden som nu hamnat i SESSION. 
     $sql = $database->prepare('SELECT * FROM users WHERE id = :id');

@@ -56,7 +56,6 @@ function fetchAllLists(PDO $database): array
 
 
 
-
     <br>
     <h3>My TODO:</h3>
 
