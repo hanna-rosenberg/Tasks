@@ -2,7 +2,8 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
-
+$statement = $database->query("SELECT title FROM lists");
+$inList = $statement->fetchAll(PDO::FETCH_ASSOC);
 //$statement = $database->query("SELECT * FROM tasks");
 //$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); 
 ?>
@@ -63,12 +64,13 @@ $allTasks = fetchAllTasks($database);
 <table class="table table-dark">
     <thead>
         <tr>
-            <th scope="col">Done</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col" class="tableNames">Done</th>
+            <th scope="col" class="tableNames">Title</th>
+            <th scope="col" class="tableNames">List</th>
+            <th scope="col" class="tableNames">Description</th>
+            <th scope="col" class="tableNames">Deadline</th>
+            <th scope="col" class="tableNames">Edit</th>
+            <th scope="col" class="tableNames">Delete</th>
 
         </tr>
     </thead>
@@ -90,6 +92,14 @@ $allTasks = fetchAllTasks($database);
                 <td class="title">
                     <ul>
                         <li><?= $taskItem['title']; ?></li>
+                    </ul>
+                </td>
+
+                <td class="list">
+                    <ul>
+                        <li>
+                            <php echo $inList?>
+                        </li>
                     </ul>
                 </td>
 

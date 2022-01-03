@@ -31,8 +31,8 @@ function fetchAllLists(PDO $database): array
     <form action="app/users/lists.php" method="post">
         <div class="name-form">
             <div class="mb-3 tasks">
-                <label for="listTitle">List-title</label>
-                <input class="form-control" type="listTitle" name="listTitle" id="listTitle" required>
+                <label for="listTitle">Create a list!</label>
+                <input class="form-control" type="listTitle" name="listTitle" id="listTitle" placeholder="List-title" required>
 
             </div>
             <!--
@@ -53,20 +53,51 @@ function fetchAllLists(PDO $database): array
 
     </form>
 
-
-
-
     <br>
-    <h3>My TODO:</h3>
+    <table class="table table-dark">
+        <thead>
+            <h3>My Lists:</h3>
+            <tr>
+                <th scope="col" class="tableNames">List-title</th>
+                <th scope="col" class="tableNames">Edit</th>
+                <th scope="col" class="tableNames">Delete</th>
+            </tr>
+        </thead>
 
-    <!-- En Foreach i databasens 'lists' -->
-    <?php foreach ($allLists as $listItem) : ?>
+        <tbody>
+
+            <tr>
+                <?php foreach ($allLists as $listItem) : ?>
+
+                    <td class="title">
+                        <ul>
+                            <li><?= $listItem['title']; ?></li>
+                        </ul>
+                    </td>
 
 
-        <ul>
-            <li><?= $listItem['title']; ?></li>
-        </ul>
+                    <td class="edit">
+                        <ul>
+                            <li> <a href="#"><img src="/assets/images/edit.png"></a></li>
+                        </ul>
+                    </td>
 
-    <?php endforeach; ?>
 
-    <?php require __DIR__ . '/views/footer.php'; ?>
+                    <td class="delete">
+                        <ul>
+                            <li><a href="#">x</a></li>
+                        </ul>
+                    </td>
+
+
+            </tr>
+        <?php endforeach; ?>
+
+        </tbody>
+    </table>
+
+
+
+</article>
+
+<?php require __DIR__ . '/views/footer.php'; ?>
