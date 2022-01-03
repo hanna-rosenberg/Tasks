@@ -237,6 +237,12 @@ article {
 .tableNames {
   font-size: 18px;
 }
+
+ul .items {
+  font-size: 13px;
+  list-style-type: circle;
+  margin-left: 1rem;
+}
 /* MOBILE-NAV */
 @media only screen and (max-width: 991px) {
   .nav-picture {

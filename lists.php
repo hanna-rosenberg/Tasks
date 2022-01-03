@@ -15,7 +15,8 @@ $allLists = fetchAllLists($database);
 
 function fetchAllLists(PDO $database): array
 {
-    $sql = $database->prepare('SELECT * FROM lists');
+    $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->execute();
 
     $allLists = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -31,32 +32,19 @@ function fetchAllLists(PDO $database): array
     <form action="app/users/lists.php" method="post">
         <div class="name-form">
             <div class="mb-3 tasks">
+
                 <label for="listTitle">Create a list!</label>
                 <input class="form-control" type="listTitle" name="listTitle" id="listTitle" placeholder="List-title" required>
 
             </div>
-            <!--
-            <div class="task-form">
-                <div class="mb-3 tasks">
-                    <label for="task">Task</label>
-                    <input class="form-control" type="task" name="task" id="task" required>
-                </div>
-
-                <div class="deadline-form">
-                    <div class="mb-3 tasks">
-                        <label for="deadline">Deadline</label>
-                        <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
-                    </div> -->
-
             <button type="submit" class="submitTask" name="submit">Add</button>
         </div>
-
     </form>
 
-    <br>
+
     <table class="table table-dark">
         <thead>
-            <h3>My Lists:</h3>
+
             <tr>
                 <th scope="col" class="tableNames">List-title</th>
                 <th scope="col" class="tableNames">Edit</th>
@@ -67,11 +55,17 @@ function fetchAllLists(PDO $database): array
         <tbody>
 
             <tr>
-                <?php foreach ($allLists as $listItem) : ?>
+                <?php foreach ($allLists as $listItem) :
+                    $tasksById = getTaskByListId($database, $listItem['id']);
+                ?>
 
                     <td class="title">
                         <ul>
                             <li><?= $listItem['title']; ?></li>
+                            <?php foreach ($tasksById as $taskById) :
+                            ?><li class="items"><?php echo $taskById['title']; ?></li><?php
+                                                                                    endforeach; ?>
+
                         </ul>
                     </td>
 

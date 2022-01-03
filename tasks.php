@@ -2,17 +2,17 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
-$statement = $database->query("SELECT title FROM lists");
-$inList = $statement->fetchAll(PDO::FETCH_ASSOC);
-//$statement = $database->query("SELECT * FROM tasks");
-//$tasks = $statement->fetchAll(PDO::FETCH_ASSOC); 
+// Hämtar allt från den inloggade personens listor 
+$statement = $database->prepare("SELECT * FROM lists WHERE user_id = :id");
+$statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+$statement->execute();
+$inLists = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!-- NYTT TEST -->
 <?php
-
 // Kallar på funktionen som definierats nedan, så att den körs.
 $allTasks = fetchAllTasks($database);
+
 ?>
 
 
@@ -42,16 +42,19 @@ $allTasks = fetchAllTasks($database);
                     </div>
 
 
-
-                    <div class="deadline-form">
+                    <div class="inList-form">
                         <div class="mb-3 tasks">
-                            <label for="List">In list</label><br>
-                            <select name="choice">
-                                <option value="first">First Value</option>
-                                <option value="second" selected>Second Value</option>
-                                <option value="third">Third Value</option>
+                            <label for="list">In list</label><br>
+                            <select name="list">
+
+                                <?php foreach ($inLists as $inList) : ?>
+                                    <option value="<?php echo $inList['id']; ?>">
+                                        <?php echo $inList['title']; ?></option>
+                                <?php endforeach; ?>
+
                             </select>
                         </div>
+
 
                         <button type="submit" class="submitTask" name="submit">Add</button>
                     </div>
@@ -95,10 +98,11 @@ $allTasks = fetchAllTasks($database);
                     </ul>
                 </td>
 
+
                 <td class="list">
                     <ul>
                         <li>
-                            <php echo $inList?>
+                            <?php echo $taskItem['listTitle']; ?>
                         </li>
                     </ul>
                 </td>
