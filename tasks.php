@@ -14,20 +14,7 @@
 $allTasks = fetchAllTasks($database);
 ?>
 
-<?php
 
-// Alla funktioner ska egentligen ligga i functions.php, får flytta det sen.
-
-function fetchAllTasks(PDO $database): array
-{
-    $sql = $database->prepare('SELECT * FROM tasks');
-    $sql->execute();
-
-    $allTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
-    return $allTasks;
-}
-
-?>
 
 <article>
     <h1>My Tasks</h1>
@@ -53,8 +40,20 @@ function fetchAllTasks(PDO $database): array
                         <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
                     </div>
 
-                    <button type="submit" class="submitTask" name="submit">Add</button>
-                </div>
+
+
+                    <div class="deadline-form">
+                        <div class="mb-3 tasks">
+                            <label for="List">In list</label><br>
+                            <select name="choice">
+                                <option value="first">First Value</option>
+                                <option value="second" selected>Second Value</option>
+                                <option value="third">Third Value</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submitTask" name="submit">Add</button>
+                    </div>
 
     </form>
 
