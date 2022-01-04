@@ -35,7 +35,8 @@ function fetchAllLists(PDO $database): array
                 <input class="form-control" type="listTitle" name="listTitle" id="listTitle" placeholder="List-title" required>
 
             </div>
-            <button type="submit" class="submitTask" name="submit">Add</button>
+            <!-- <button type="submit" class="submitTask" name="submit">Add</button> -->
+            <button type="submit" class="btn btn-dark">Add</button>
         </div>
     </form>
 
@@ -52,7 +53,7 @@ function fetchAllLists(PDO $database): array
 
                     <td class="title line">
                         <ul>
-                            <li><?= $listItem['title']; ?></li>
+                            <li class="listNameInColumn"><?= $listItem['title']; ?></li>
                         </ul>
 
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
@@ -69,7 +70,7 @@ function fetchAllLists(PDO $database): array
                                             <th scope="col" class="tableNames">Description</th>
                                             <th scope="col" class="tableNames">Deadline</th>
                                             <th scope="col" class="tableNames">Edit</th>
-                                            <th scope="col" class="tableNames">Delete</th>
+                                            <th scope="col" class="tableNameDelete">Delete</th>
 
                                         </tr>
                                     </thead>
@@ -113,14 +114,14 @@ function fetchAllLists(PDO $database): array
 
                                                 <td class="edit">
                                                     <ul>
-                                                        <li> <a href="#"><img src="/assets/images/edit.png"></a></li>
+                                                        <li> <a href="#"><img src="/assets/images/EDITFIGMA.png"></a></li>
                                                     </ul>
                                                 </td>
 
 
                                                 <td class="delete">
                                                     <ul>
-                                                        <li><a href="#">x</a></li>
+                                                        <li><a href="#"><img src="/assets/images/DELETE.png"></a></li>
                                                     </ul>
                                                 </td>
 
@@ -171,14 +172,14 @@ function fetchAllLists(PDO $database): array
 
                     <td class="edit line">
                         <ul>
-                            <li> <a href="#"><img src="/assets/images/edit.png"></a></li>
+                            <li> <a href="#"><img src="/assets/images/EDITFIGMA.png"></a></li>
                         </ul>
                     </td>
 
 
                     <td class="delete line">
                         <ul>
-                            <li><a href="#">x</a></li>
+                            <li><a href="#"><img src="/assets/images/DELETE.png"></a></li>
                         </ul>
                     </td>
 

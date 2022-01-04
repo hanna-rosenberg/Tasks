@@ -55,20 +55,20 @@ h1 {
 /* style for EDIT */
 
 .picture-form {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(224 228 233);
   padding: 2rem;
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
 
 .email-form {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(224 228 233);
   padding: 2rem;
   margin-bottom: 1rem;
 }
 
 .password-form {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(224 228 233);
   padding: 2rem;
   margin-bottom: 1rem;
 }
@@ -96,12 +96,16 @@ input[type='file'] {
 }
 
 /* style for NAVIGATION */
+
 .nav-picture {
   display: flex;
   /* width: 100vw; */
   justify-content: flex-end;
 }
-
+/* 
+.navbar-custom {
+  background-color: #a0b3b9;
+} */
 .nav-picture img {
   display: inline-block;
   position: relative;
@@ -164,8 +168,8 @@ td .name-form {
 /* STYLE FOR TASKS */
 .submitTask {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #a0b3b9;
+  border-color: #a0b3b9;
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
@@ -177,7 +181,7 @@ td .name-form {
 }
 
 .name-form {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(224 228 233);
   padding: 2rem;
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -198,23 +202,29 @@ ul {
   border-radius: 0.3rem;
 } */
 
-.edit img {
+.edit img,
+.delete img {
   height: 1.3rem;
 }
-.delete {
-  /* text-align: center; */
+
+td.edit.line {
+  width: 3rem;
+}
+
+td.delete.line {
+  width: 3rem;
 }
 
 table {
   margin-top: 2rem;
 }
 
-.delete a {
+/* .delete a {
   color: rgb(43, 43, 43);
   background-color: rgb(218, 218, 218);
   padding: 0.1rem 0.4rem;
   border-radius: 0.3rem;
-}
+} */
 
 /* STYLE FOR LISTS */
 article {
@@ -243,6 +253,14 @@ article {
   font-size: 16px;
 }
 
+.tableNameDelete {
+  text-align: right;
+}
+
+.delete {
+  text-align: right;
+}
+
 ul .items {
   font-size: 13px;
   list-style-type: circle;
@@ -254,7 +272,12 @@ ul .items {
 }
 
 details {
-  width: 117%;
+  width: 110%;
+}
+
+.listNameInColumn {
+  font-size: 25px;
+  font-family: 'Urbanist';
 }
 
 /* MOBILE-NAV */
