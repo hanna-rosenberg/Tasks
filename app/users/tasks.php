@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['list'])) {
+if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $task = trim(filter_var($_POST['task'], FILTER_SANITIZE_STRING));
     $date = trim(filter_var($_POST['deadline'], FILTER_SANITIZE_STRING));
-    $listId = trim(filter_var($_POST['list'], FILTER_SANITIZE_STRING));
+    $listId = trim(filter_var($_POST['listName'], FILTER_SANITIZE_STRING));
     $currentUser = $_SESSION['user']['id'];
 
 
     // här läggs det inskriva in i databasen på ett säkrare sätt med hjälp av tomma "placeholders".
     // $statement = $database->prepare('INSERT INTO lists VALUES (:id, :user_id, :title)');
 
-    $statement = $database->prepare("INSERT INTO tasks (title, description, deadline, user_id, list_id) VALUES (:placeholderTitle, :placeholderTask, :placeholderDeadline, :placeholderID, :placeholderListId)");
+    $statement = $database->prepare("INSERT INTO tasks (title, description, deadline, user_id, list_id) 
+    VALUES (:placeholderTitle, :placeholderTask, :placeholderDeadline, :placeholderID, :placeholderListId)");
     $statement->bindParam(':placeholderTitle', $title, PDO::PARAM_STR);
     $statement->bindParam(':placeholderTask', $task, PDO::PARAM_STR);
     $statement->bindParam(':placeholderDeadline', $date, PDO::PARAM_STR);
@@ -50,4 +51,4 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['list'])) 
 // };
 
 
-redirect('/tasks.php');
+redirect('/lists.php');

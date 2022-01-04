@@ -23,8 +23,8 @@ function redirect(string $path)
 
 function fetchAllTasks(PDO $database): array
 {
-
-    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN lists on tasks.list_id = lists.id WHERE lists.user_id = :id');
+    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN 
+    lists on tasks.list_id = lists.id WHERE lists.user_id = :id');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->execute();
 
@@ -32,6 +32,7 @@ function fetchAllTasks(PDO $database): array
     return $allTasks;
 }
 
+// hämtar allt från tasks med matchande list-id.
 function getTaskByListId(PDO $database, INT $listId): array
 {
     $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
@@ -40,4 +41,17 @@ function getTaskByListId(PDO $database, INT $listId): array
 
     $tasksById = $sql->fetchAll(PDO::FETCH_ASSOC);
     return $tasksById;
+}
+
+// Hämtar data från min task-tabell, och kopplar ihop den med rätt list_id!
+function fetchTasks(PDO $database, int $listId): array
+{
+    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN 
+    lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :placeholderListId');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->bindParam(':placeholderListId', $listId, PDO::PARAM_INT);
+    $sql->execute();
+
+    $allTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $allTasks;
 }
