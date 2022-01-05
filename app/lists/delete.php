@@ -11,6 +11,7 @@ if (isset($_POST['id'])) {
     $sql->bindParam(':id', $listId, PDO::PARAM_INT);
     $sql->execute();
 
+    // även alla tasks med detta list-id tas bort från databasen
     $sql = $database->prepare('DELETE FROM tasks WHERE list_id = :id;');
     $sql->bindParam(':id', $listId, PDO::PARAM_INT);
     $sql->execute();

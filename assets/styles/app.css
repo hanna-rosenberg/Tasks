@@ -342,6 +342,19 @@ ul button {
   border: unset;
 }
 
+summary .urgent {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  align-self: center;
+}
+
+.urgentContainer summary {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 /* Styles on EDIT LIST  */
 .editListName {
   width: 100%;

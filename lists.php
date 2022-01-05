@@ -194,8 +194,94 @@ $allLists = fetchAllLists($database);
 
                 <?php endforeach; ?>
 
+
+
         </tbody>
     </table>
+    <div class="urgentContainer">
+        <details>
+
+            <summary><img src="/assets/images/urgent.png" class="urgent"></summary>
+
+
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col" class="tableNames">Completed</th>
+                        <th scope="col" class="tableNames">Title</th>
+                        <th scope="col" class="tableNames">Description</th>
+                        <th scope="col" class="tableNames">Deadline</th>
+                        <th scope="col" class="tableNames">Edit</th>
+                        <th scope="col" class="tableNameDelete">Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
+                        <?php foreach ($tasksBylistId as $taskItem) : ?>
+                            <td class="done">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="checkbox" name="checkbox">
+                                        <label for="horns"></label>
+
+                                    </li>
+                                </ul>
+                            </td>
+
+                            <td class="title">
+                                <ul>
+                                    <li><?= $taskItem['title']; ?></li>
+                                </ul>
+                            </td>
+
+                            <td class="description">
+                                <ul>
+                                    <li><?= $taskItem['description']; ?></li>
+                                </ul>
+                            </td>
+
+                            <td class="deadline">
+                                <ul>
+                                    <li><?= $taskItem['deadline']; ?></li>
+                                </ul>
+                            </td>
+
+                            <td class="edit">
+                                <ul>
+
+
+                                    <form action="/updateTask.php" method="post">
+                                        <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
+                                        <button type="submit">
+                                            <img src="/assets/images/EDITFIGMA.png">
+                                        </button>
+                                    </form>
+                                </ul>
+                            </td>
+
+                            <td class="delete">
+                                <ul>
+
+                                    <form action="/app/tasks/delete.php" method="post">
+                                        <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
+                                        <button type="submit">
+                                            <img src="/assets/images/DELETE.png">
+                                        </button>
+                                    </form>
+
+                                </ul>
+                            </td>
+
+                    </tr>
+                <?php endforeach; ?>
+
+
+
+        </details>
+    </div>
+
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
