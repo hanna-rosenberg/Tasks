@@ -386,8 +386,23 @@ ul button {
   }
 }
 
-@media only screen and (max-width: 661px) {
-  /* li {
+@media only screen and (max-width: 567px) {
+  li {
     font-size: 10px;
-  } */
+  }
+  .table-dark {
+    display: inline-block;
+  }
+
+  .table td.line {
+    width: unset;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td.edit.line {
+    width: 95vw;
+  }
 }
