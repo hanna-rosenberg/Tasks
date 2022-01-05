@@ -125,13 +125,27 @@ $allLists = fetchAllLists($database);
 
                                                 <td class="edit">
                                                     <ul>
-                                                        <li> <a href="#"><img src="/assets/images/EDITFIGMA.png"></a></li>
+
+
+                                                        <form action="/updateTask.php" method="post">
+                                                            <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
+                                                            <button type="submit">
+                                                                <img src="/assets/images/EDITFIGMA.png">
+                                                            </button>
+                                                        </form>
                                                     </ul>
                                                 </td>
 
                                                 <td class="delete">
                                                     <ul>
-                                                        <li><a href="#"><img src="/assets/images/DELETE.png"></a></li>
+
+                                                        <form action="/app/tasks/delete.php" method="post">
+                                                            <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
+                                                            <button type="submit">
+                                                                <img src="/assets/images/DELETE.png">
+                                                            </button>
+                                                        </form>
+
                                                     </ul>
                                                 </td>
 

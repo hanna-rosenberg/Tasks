@@ -358,6 +358,11 @@ ul button {
   flex-direction: column;
 }
 
+.update-form {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
 /* MOBILE-NAV */
 @media only screen and (max-width: 991px) {
   .nav-picture {
