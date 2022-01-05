@@ -52,6 +52,12 @@ h1 {
 .contentFrontpage form {
   align-self: center;
 }
+
+/* style for LOGIN */
+.error {
+  color: rgb(156, 69, 69);
+}
+
 /* style for EDIT */
 
 .picture-form {

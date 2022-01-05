@@ -2,45 +2,43 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
+
     <h1>Login</h1>
 
+
+    <!-- Form for login -->
     <form action="app/users/login.php" method="post">
+
+        <!-- Input for email -->
         <div class="mb-3">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
-            <small class="form-text">Please provide the your email address.</small>
+            <label for="email">Email-address</label>
+            <input class="form-control" type="email" name="email" id="email" required>
+            <small class="form-text">Please provide with your email address</small>
         </div>
 
+        <!-- Input for password -->
         <div class="mb-3">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <small class="form-text">Please provide the your password (passphrase).</small>
+            <small class="form-text">Please provide with your password</small>
         </div>
 
 
-        <!-- Om det fastnat ett error i sessionen = användaren skrev in fel lösenord eller email, så skall ett errormeddelande skrivas ut på sidan. 
-     Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden. Funkar bara om man skiver in 
-    fel lösenord på en användare vars epost finns i databasen.-->
+        <!-- Om det skapats ett SESSION['error'], dvs att lösenordet inte matchade med den mail som finns i databasen, så skall ett errormeddelande 
+        skrivas ut på sidan. Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden.-->
+        <div>
+            <p class="error">
+                <?php if (isset($_SESSION['error'])) :
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                endif;
+                ?>
+            </p>
+        </div>
 
-        <?php if (isset($_SESSION['error'])) :
-            echo $_SESSION['error'];
-            unset($_SESSION['error']);
-        endif;
-        ?>
 
-
-
+        <!-- Knapp för att logga in -->
         <button type="submit" class="btn btn-dark">Login</button>
-
-
-    </form>
-    <br>
-    <!-- creates button that takes you to the sign-up page -->
-    <form method="get" action="/signup.php">
-        <button type="submit" class="btn btn-dark">Sign up</button>
-    </form>
-
-
 
 
     </form>
