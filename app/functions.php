@@ -15,8 +15,7 @@ function fetchAllLists(PDO $database): array
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->execute();
 
-    $allLists = $sql->fetchAll(PDO::FETCH_ASSOC);
-    return $allLists;
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -38,8 +37,7 @@ function getTaskByListId(PDO $database, INT $listId): array
     $sql->bindParam(':id', $listId, PDO::PARAM_INT);
     $sql->execute();
 
-    $tasksById = $sql->fetchAll(PDO::FETCH_ASSOC);
-    return $tasksById;
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 // Hämtar data från min task-tabell, och kopplar ihop den med rätt list_id!

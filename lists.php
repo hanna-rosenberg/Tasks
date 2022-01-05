@@ -3,7 +3,7 @@
 
 <?php
 
-// Kallar på funktionen som definierats i functions, så att den körs.  XXX
+// Tar emot innehållet i arrayen och sparar det i en variabel som jag döper till $allLists.
 $allLists = fetchAllLists($database);
 ?>
 
@@ -156,16 +156,27 @@ $allLists = fetchAllLists($database);
 
 
                     <td class="edit line">
-                        <ul>
+                        <!-- <ul>
                             <li> <a href="#"><img src="/assets/images/EDITFIGMA.png"></a></li>
-                        </ul>
+                        </ul> -->
+                        <form action="/update.php" method="post">
+                            <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
+                            <button type="submit">
+                                <img src="/assets/images/EDITFIGMA.png">
+                            </button>
+                        </form>
                     </td>
 
 
                     <td class="delete line">
-                        <ul>
-                            <li><a href="#"><img src="/assets/images/DELETE.png"></a></li>
-                        </ul>
+                        <!-- Delete-knappen är i form av ett form som får med sig dold informaion. Den dolda informationen är id-numret
+                    på listan som knappen hör till. Detta är bra för att man skall veta vilken lista man skall radera sedan.-->
+                        <form action="/app/lists/delete.php" method="post">
+                            <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
+                            <button type="submit">
+                                <img src="/assets/images/DELETE.png">
+                            </button>
+                        </form>
                     </td>
 
             </tr>

@@ -31,14 +31,14 @@ if (isset($_FILES['avatar'])) {
     // här körs det. 
     $sql->execute();
 
-    // Här hämtas allting ut på nytt, eftersom något kanske har ändrats. När jag skriver ut $_SESSION user avatar på sidan nu, så är det den uppdaterade bilden som hamnat i SESSION. 
+    // Här förbereds allting för att sedan hämtas, eftersom något kanske har ändrats. 
     $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
 
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
     $sql->execute();
 
-    // Hämtar de nya uppgifterna från user arrayen och lägger dom i SESSION. XXXX Det är väl denna koden som gör att nya bilden hamnar i session? 
+    // Hämtar de nya uppgifterna från user arrayen och lägger dom i SESSION. När jag skriver ut $_SESSION user avatar på sidan nu, så är det den uppdaterade bilden som hamnat i SESSION. 
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // Ett meddelande som skrivs ut i den andra edit.php ifall man har laddat upp en fil, om SESSION message isset.
