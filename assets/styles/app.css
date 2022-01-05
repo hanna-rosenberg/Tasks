@@ -9,12 +9,13 @@
 .home-picture {
   display: inline-block;
   position: relative;
-  width: 6rem;
+  width: 11rem;
   height: 15rem;
   overflow: hidden;
   border-radius: 50%;
   align-self: center;
-  margin-bottom: 1rem;
+
+  margin: 1rem;
 }
 
 h1 {
@@ -32,6 +33,9 @@ h1 {
   width: 300px;
 }
 
+.homePageSmallImg {
+  width: 200px;
+}
 .py-5 .frontPageItems h1 {
   text-align: center;
 }
@@ -59,7 +63,11 @@ h1 {
 }
 
 /* style for EDIT */
-
+.update-form {
+  background-color: rgb(224 228 233);
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
 .picture-form {
   background-color: rgb(224 228 233);
   padding: 2rem;
@@ -259,13 +267,13 @@ article {
   font-size: 16px;
 }
 
-.tableNameDelete {
+/* .tableNameDelete {
   text-align: right;
 }
 
 .delete {
   text-align: right;
-}
+} */
 
 ul .items {
   font-size: 13px;
@@ -278,12 +286,76 @@ ul .items {
 }
 
 details {
-  width: 110%;
+  width: 100%;
 }
 
 .listNameInColumn {
   font-size: 25px;
   font-family: 'Urbanist';
+}
+
+.testdiv {
+  display: flex;
+  width: 100%;
+  /* flex-direction: row; */
+}
+
+.testdiv ul {
+  display: flex;
+  /* flex-direction: row; */
+  width: 100%;
+  justify-content: space-between;
+}
+
+.testdiv ul p {
+  align-self: right;
+}
+
+.buttonDiv {
+  align-self: right;
+  display: flex;
+  /* flex-direction: row; */
+}
+
+.table td.line {
+  width: 100%;
+}
+
+article tr {
+  display: flex;
+  flex-direction: column;
+}
+
+details tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.table-dark td,
+.table-dark th,
+.table-dark thead th {
+  width: 100%;
+}
+
+ul button {
+  background-color: unset;
+  border: unset;
+}
+
+/* Styles on EDIT LIST  */
+.editListName {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.update-form button {
+  width: 4rem;
+}
+
+.update-form .mb-3 {
+  display: flex;
+  flex-direction: column;
 }
 
 /* MOBILE-NAV */
@@ -307,4 +379,10 @@ details {
   .logo {
     width: unset;
   }
+}
+
+@media only screen and (max-width: 661px) {
+  /* li {
+    font-size: 10px;
+  } */
 }

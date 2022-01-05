@@ -75,7 +75,7 @@ if (isset($_POST['email'])) {
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // Ett meddelande som skrivs ut i den andra edit.php ifall man har bytt e-post, om SESSION emailMessage isset.
-    $_SESSION['emailMessage'] = "Your email is changed to: " . $_SESSION['user']['email'];
+    $_SESSION['emailMessage'] = "Your email has changed to: " . $_SESSION['user']['email'];
 }
 ?>
 
@@ -110,7 +110,7 @@ if (isset($_POST['password'])) {
     $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // Ett meddelande som skrivs ut i den andra edit.php ifall man har bytt lösenord, om SESSION passwordMessage isset.
-    $_SESSION['passwordMessage'] = "Your password is changed";
+    $_SESSION['passwordMessage'] = "Your password has changed";
 }
 
 ?>

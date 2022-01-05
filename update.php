@@ -13,9 +13,18 @@ if (isset($_POST['id'])) {
 }
 ?>
 
-<!-- Formet  -->
-<form action="/app/lists/update.php" method="post">
-    <input type="hidden" value="<?= $id ?>" name="id" />
-    <input type="text" value="<?= $list['title'] ?>" name="title" />
-    <button type="submit">Spara ändringar</button>
-</form>
+<!-- Formet där du uppdaterar namnet på din lista och tar med dig list-id:t för att veta vilken lista som skall uppdateras i databasen -->
+<div class="update-form">
+
+
+    <form action="/app/lists/update.php" method="post">
+        <div class="mb-3">
+            <label for="rename">Rename your list</label>
+
+            <input type="hidden" value="<?= $id ?>" name="id">
+            <input type="form-control" value="<?= $list['title'] ?>" name="title" class="form-control" />
+
+            <button type="submit" class="btn btn-dark">Save</button>
+        </div>
+
+    </form>

@@ -28,12 +28,19 @@
             ?>
                 <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
-                <p class="greeting">What do you want to do?</p>
+            <?php else : ?>
+
+                <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePageSmallImg"></div>
+
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['user'])) : ?>
+
 
                 <!-- Måste man göra såhär för att skickas till en annan sida? XXX -->
-                <form method="get" action="/tasks.php">
+                <!-- <form method="get" action="/tasks.php">
                     <button type="submit" class="btn btn-dark">Create task</button>
-                </form>
+                </form> -->
 
                 <form method="get" action="/lists.php">
                     <button type="submit" class="btn btn-dark">Create list</button>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we delete posts in the database.
+// Fältet i formluläret som heter 'title' är i fyllt och id:t som kommit med sedan tidigare är fortfarande med.
 if (isset($_POST['title'], $_POST['id'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $listId = trim(filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT));
