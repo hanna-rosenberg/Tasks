@@ -2,41 +2,47 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
+
     <div class="frontPageItems">
+
+        <!-- Om användaren INTE är inloggad så syns "välkomstbilden"  -->
         <?php if (!isset($_SESSION['user'])) { ?>
             <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePage"></div>
         <?php
         }; ?>
 
+        <!-- Namnet på sidan visas  -->
         <h1><?php echo $config['title']; ?></h1>
-        <!-- <p>This is the home page.</p> -->
+
     </div>
+
     <div class="contentFrontpage">
-        <!-- om man är inloggad visas ditt användarnamn efter Welcome -->
+
+        <!-- Om användaren är inloggad visas kontots angivna namn efter Welcome, följt av frågan "What do you want to do och två knappar -->
         <?php if (isset($_SESSION['user'])) : ?>
             <p class="greeting">Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
-            <?php
 
-            // om du är inloggad och har en profilbild visas även din profilbild
+            <?php
+            // Om användaren är inloggad och har en profilbild visas även profilbilden.
             if (isset($_SESSION['user']['profile_picture'])) :
             ?>
                 <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
+                <p class="greeting">What do you want to do?</p>
 
-            <?php endif;
-        endif;
+                <!-- Måste man göra såhär för att skickas till en annan sida? XXX -->
+                <form method="get" action="/tasks.php">
+                    <button type="submit" class="btn btn-dark">Create task</button>
+                </form>
 
-        if (isset($_SESSION['user'])) : ?>
+                <form method="get" action="/lists.php">
+                    <button type="submit" class="btn btn-dark">Create list</button>
+                </form>
 
-            <p class="greeting">What do you want to do?</p>
-            <form method="get" action="/tasks.php">
-                <button type="submit" class="btn btn-dark">Create task</button>
-            </form>
+            <?php endif; ?>
+        <?php endif;
+        ?>
 
-            <form method="get" action="/lists.php">
-                <button type="submit" class="btn btn-dark">Create list</button>
-            </form>
-        <?php endif; ?>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

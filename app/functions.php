@@ -8,18 +8,17 @@ function redirect(string $path)
     exit;
 }
 
-// function showList($database)
-// {
-//     $sql = $database->prepare("SELECT * FROM lists WHERE user_id = :id");
-//     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
-//     $sql->execute();
-//     $myList = $sql->fetch(PDO::FETCH_ASSOC);
-//     return $myList;
-// };
+// Hämtar alla listor tillhörande den inloggade personen. 
+function fetchAllLists(PDO $database): array
+{
+    $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->execute();
 
+    $allLists = $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $allLists;
+}
 
-
-// Alla funktioner ska egentligen ligga i functions.php, får flytta det sen.
 
 function fetchAllTasks(PDO $database): array
 {
@@ -32,7 +31,7 @@ function fetchAllTasks(PDO $database): array
     return $allTasks;
 }
 
-// hämtar allt från tasks med matchande list-id.
+// Hämtar allt från tasks med matchande list-id.
 function getTaskByListId(PDO $database, INT $listId): array
 {
     $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');

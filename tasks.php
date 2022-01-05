@@ -2,6 +2,9 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php
+
+// DEN HÄR SIDAN SKALL EVENTUELLT BORT HELT NU NÄR JAG ÄNDRAT UPPLÄGG!
+
 // Hämtar allt från den inloggade personens listor 
 $statement = $database->prepare("SELECT * FROM lists WHERE user_id = :id");
 $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+// Om man fyllt i formsen för tasks, så sparas det i variabler som kopplats ihop med placeholders, och läggs sedan in i databasen.
 if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $task = trim(filter_var($_POST['task'], FILTER_SANITIZE_STRING));
@@ -28,27 +29,8 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'
 
     // $_SESSION['user'] = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //skriver ut title på din task med hjälp av session men skall nog inte vara så sen. testade bara.
-    //$_SESSION['titleMessage'] = $_POST['title'];
 }
 
-// NYTT TEST
-// if (isset($_POST['title'])) {
-//     // ID:t på den inloggade användaren hämtas från SESSION
-//     $currentUser = $_SESSION['user']['id'];
-//     // Det som skrivits i titleList formulären trimmas osv och sparas i en variabel.
-//     $taskTitle = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
-//     // Förbereder för att lägga in i databasen och för att koppla med rätt ID. 
-//     $sql = $database->prepare("INSERT INTO tasks (id, deadline, list_id, title, description, completed, user_id) VALUES (:id, :deadline, :list_id, :title, :description, :completed, :user_id)");
-
-//     // $sql = $database->prepare('INSERT INTO tasks VALUES (:id, :user_id, :title)');
-//     // Binder ihop lists-tabellens 'user_id' med den inloggade personens konto-id.
-//     $sql->bindParam(':user_id', $currentUser, PDO::PARAM_INT);
-//     // Binder ihop lists-tabellens 'title' med texten/innehållet jag fick från list-formuläret.
-//     $sql->bindParam(':title', $title, PDO::PARAM_STR);
-//     // Kör. 
-//     $sql->execute();
-// };
 
 
 redirect('/lists.php');

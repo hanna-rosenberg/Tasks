@@ -1,13 +1,13 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<!-- 
-Denna sidan skall bara synas när man är inloggad och kanske inte ligga där den ligger nu. Man skall kunna byta epost, 
-lägga till och byta profilbild med mera. 
 
-Tips från V är att ha olika formlär för de olika fälten. -->
 <h1>Edit Profile</h1>
+
 <div class="picture-form">
+
+
+    <!-- Form för att välja profilbild -->
     <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
 
         <div class="mb-3">
@@ -17,12 +17,13 @@ Tips från V är att ha olika formlär för de olika fälten. -->
 
         </div>
 
-        <!-- här kollar jag om message är satt (se den andra edit.php) Om den är det, så echoar jag ut meddelandet "Your profile pic has changed", 
-  sedan unsetar jag session message och visar den nya bilden-->
+        <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en 
+        $_SESSION[message] och om det gör det så echoas meddelandet "Your profile pic has changed" ut. Session unsetas -->
         <?php if (isset($_SESSION['message'])) :
             echo $_SESSION['message'];
             unset($_SESSION['message']);
 
+            // Finns det en profile_picture i users-arrayen visas den här.
             if (isset($_SESSION['user']['profile_picture'])) :
         ?>
                 <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
@@ -31,8 +32,11 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         endif; ?>
 
     </form>
+
 </div>
 
+
+<!-- Form för att byta e-post -->
 <div class="email-form">
     <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
@@ -44,16 +48,18 @@ Tips från V är att ha olika formlär för de olika fälten. -->
 
     </form>
 
-    <!-- här kollar jag om det emailMessage är satt i SESSION. se andra edit.php. om den är satt visas meddelandet
-"your mail has changed". -->
+    <!-- Här kollar jag om det finns ett emailMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your mail has changed". -->
     <?php if (isset($_SESSION['emailMessage'])) :
         echo $_SESSION['emailMessage'];
         unset($_SESSION['emailMessage']);
 
     endif;
     ?>
+
 </div>
 
+
+<!-- Form för att byta lösenord -->
 <div class="password-form">
     <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
@@ -64,13 +70,15 @@ Tips från V är att ha olika formlär för de olika fälten. -->
         </div>
     </form>
 
-
+    <!-- Här kollar jag om det finns ett passwordMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your password has changed". -->
     <?php if (isset($_SESSION['passwordMessage'])) :
         echo $_SESSION['passwordMessage'];
         unset($_SESSION['passwordMessage']);
 
     endif;
     ?>
+
 </div>
+
 <?php
 require __DIR__ . '/views/footer.php'; ?>
