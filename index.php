@@ -38,13 +38,16 @@
 
 
                 <!-- Måste man göra såhär för att skickas till en annan sida? XXX -->
-                <!-- <form method="get" action="/tasks.php">
-                    <button type="submit" class="btn btn-dark">Create task</button>
-                </form> -->
 
                 <form method="get" action="/lists.php">
                     <button type="submit" class="btn btn-dark">Create list</button>
                 </form>
+
+                <form method="get" action="/today.php">
+                    <button type="submit" class="btn btn-dark">What's for today?</button>
+                </form>
+
+
 
             <?php endif; ?>
         <?php endif;

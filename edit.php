@@ -19,18 +19,18 @@
 
         <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en 
         $_SESSION[message] och om det gör det så echoas meddelandet "Your profile pic has changed" ut. Session unsetas -->
-        <?php if (isset($_SESSION['message'])) :
-            echo $_SESSION['message'];
-            unset($_SESSION['message']);
+        <p class="sessionMessageEdit"> <?php if (isset($_SESSION['message'])) :
+                                            echo $_SESSION['message'];
+                                            unset($_SESSION['message']);
 
-            // Finns det en profile_picture i users-arrayen visas den här.
-            if (isset($_SESSION['user']['profile_picture'])) :
-        ?>
-                <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
+                                            // Finns det en profile_picture i users-arrayen visas den här.
+                                            if (isset($_SESSION['user']['profile_picture'])) :
+                                        ?>
+        <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
 
-        <?php endif;
-        endif; ?>
-
+<?php endif;
+                                        endif; ?>
+</p>
     </form>
 
 </div>
@@ -49,12 +49,12 @@
     </form>
 
     <!-- Här kollar jag om det finns ett emailMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your mail has changed". -->
-    <?php if (isset($_SESSION['emailMessage'])) :
-        echo $_SESSION['emailMessage'];
-        unset($_SESSION['emailMessage']);
+    <p class="sessionMessageEdit"><?php if (isset($_SESSION['emailMessage'])) :
+                                        echo $_SESSION['emailMessage'];
+                                        unset($_SESSION['emailMessage']);
 
-    endif;
-    ?>
+                                    endif;
+                                    ?></p>
 
 </div>
 
@@ -71,13 +71,13 @@
     </form>
 
     <!-- Här kollar jag om det finns ett passwordMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your password has changed". -->
-    <?php if (isset($_SESSION['passwordMessage'])) :
-        echo $_SESSION['passwordMessage'];
-        unset($_SESSION['passwordMessage']);
+    <p class="sessionMessageEdit"> <?php if (isset($_SESSION['passwordMessage'])) :
+                                        echo $_SESSION['passwordMessage'];
+                                        unset($_SESSION['passwordMessage']);
 
-    endif;
-    ?>
-
+                                    endif;
+                                    ?>
+    </p>
 </div>
 
 <?php
