@@ -10,6 +10,9 @@ if (isset($_POST['id'])) {
     $sql->execute();
     $tasks = $sql->fetch(PDO::FETCH_ASSOC);
 }
+
+// die(var_dump($tasks));
+
 ?>
 <h1>Update your Task</h1>
 
@@ -33,7 +36,7 @@ if (isset($_POST['id'])) {
             <div class="deadline-form">
                 <div class="mb-3 tasks">
                     <label for="deadline">Deadline</label>
-                    <input class="form-control" type="date" name="deadline" value="<?php echo $tasks['deadline'] ?> " id="deadline" placeholder="write ">
+                    <input class="form-control" type="date" name="deadline" value="<?php echo $tasks['deadline'] ?>" id="deadline">
                     <input type="hidden" value="<?= $id ?>" name="id">
                 </div>
 

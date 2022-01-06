@@ -24,4 +24,6 @@ if (isset($_POST['listTitle'])) {
     $statement->execute();
 };
 
+
+
 redirect('/lists.php');

@@ -201,7 +201,7 @@ $allLists = fetchAllLists($database);
     <div class="urgentContainer">
         <details>
 
-            <summary><img src="/assets/images/urgent.png" class="urgent"></summary>
+            <summary><img src="/assets/images/today.png" class="urgent"></summary>
 
 
             <table class="table table-dark">
