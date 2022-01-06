@@ -50,6 +50,8 @@
         <?php endif;
         ?>
 
+
+
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

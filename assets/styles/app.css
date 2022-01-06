@@ -355,6 +355,7 @@ summary .urgent {
   display: flex;
   justify-content: center;
 }
+
 /* Styles on EDIT LIST  */
 .editListName {
   width: 100%;
@@ -417,5 +418,10 @@ summary .urgent {
 
   td.edit.line {
     width: 95vw;
+  }
+
+  .edit img,
+  .delete img {
+    height: 1rem;
   }
 }

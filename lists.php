@@ -5,6 +5,7 @@
 
 // Tar emot innehållet i arrayen och sparar det i en variabel som jag döper till $allLists.
 $allLists = fetchAllLists($database);
+$taskByDate = getTasksByDate($database);
 ?>
 
 <article>
@@ -198,89 +199,101 @@ $allLists = fetchAllLists($database);
 
         </tbody>
     </table>
-    <div class="urgentContainer">
-        <details>
 
-            <summary><img src="/assets/images/today.png" class="urgent"></summary>
+    <?php if (sizeof($taskByDate) > 0) { ?>
+        <div class="urgentContainer">
+            <details>
 
+                <summary><img src="/assets/images/today.png" class="urgent"></summary>
 
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col" class="tableNames">Completed</th>
-                        <th scope="col" class="tableNames">Title</th>
-                        <th scope="col" class="tableNames">Description</th>
-                        <th scope="col" class="tableNames">Deadline</th>
-                        <th scope="col" class="tableNames">Edit</th>
-                        <th scope="col" class="tableNameDelete">Delete</th>
-                    </tr>
-                </thead>
+                <!-- Här skall det som har deadline idag loopas ut! -->
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="tableNames">Completed</th>
+                            <th scope="col" class="tableNames">Title</th>
+                            <th scope="col" class="tableNames">Description</th>
+                            <th scope="col" class="tableNames">Deadline</th>
+                            <th scope="col" class="tableNames">Edit</th>
+                            <th scope="col" class="tableNameDelete">Delete</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr>
-                        <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
-                        <?php foreach ($tasksBylistId as $taskItem) : ?>
-                            <td class="done">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" id="checkbox" name="checkbox">
-                                        <label for="horns"></label>
+                    <tbody>
+                        <tr>
+                            <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
 
-                                    </li>
-                                </ul>
-                            </td>
+                            <?php foreach ($taskByDate as $taskItemByDate) : ?>
+                                <td class="done">
+                                    <ul>
 
-                            <td class="title">
-                                <ul>
-                                    <li><?= $taskItem['title']; ?></li>
-                                </ul>
-                            </td>
+                                        <li>
+                                            <input type="checkbox" id="checkbox" name="checkbox">
+                                            <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
 
-                            <td class="description">
-                                <ul>
-                                    <li><?= $taskItem['description']; ?></li>
-                                </ul>
-                            </td>
+                                            <label for="horns"></label>
 
-                            <td class="deadline">
-                                <ul>
-                                    <li><?= $taskItem['deadline']; ?></li>
-                                </ul>
-                            </td>
+                                        </li>
+                                    </ul>
+                                </td>
 
-                            <td class="edit">
-                                <ul>
+                                <td class="title">
+                                    <ul>
+                                        <li><?= $taskItemByDate['title']; ?></li>
+                                    </ul>
+                                </td>
 
+                                <td class="description">
+                                    <ul>
+                                        <li><?= $taskItemByDate['description']; ?></li>
+                                    </ul>
+                                </td>
 
-                                    <form action="/updateTask.php" method="post">
-                                        <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
-                                        <button type="submit">
-                                            <img src="/assets/images/EDITFIGMA.png">
-                                        </button>
-                                    </form>
-                                </ul>
-                            </td>
+                                <td class="deadline">
+                                    <ul>
+                                        <li><?= $taskItemByDate['deadline']; ?></li>
+                                    </ul>
+                                </td>
 
-                            <td class="delete">
-                                <ul>
-
-                                    <form action="/app/tasks/delete.php" method="post">
-                                        <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
-                                        <button type="submit">
-                                            <img src="/assets/images/DELETE.png">
-                                        </button>
-                                    </form>
-
-                                </ul>
-                            </td>
-
-                    </tr>
-                <?php endforeach; ?>
+                                <td class="edit">
+                                    <ul>
 
 
+                                        <form action="/updateTask.php" method="post">
+                                            <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
+                                            <button type="submit">
+                                                <img src="/assets/images/EDITFIGMA.png">
+                                            </button>
+                                        </form>
+                                    </ul>
+                                </td>
 
-        </details>
-    </div>
+                                <td class="delete">
+                                    <ul>
+
+                                        <form action="/app/tasks/delete.php" method="post">
+                                            <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
+                                            <button type="submit">
+                                                <img src="/assets/images/DELETE.png">
+                                            </button>
+                                        </form>
+
+                                    </ul>
+                                </td>
+
+                        </tr>
+
+                    <?php endforeach; ?>
+
+
+
+            </details>
+
+        </div>
+
+
+    <?php
+    } ?>
 
 </article>
 

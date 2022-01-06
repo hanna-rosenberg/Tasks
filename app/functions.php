@@ -52,3 +52,19 @@ function fetchTasks(PDO $database, int $listId): array
     $allTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
     return $allTasks;
 }
+
+
+
+function getTasksByDate(PDO $database): array
+{
+
+    $today = date("Y-m-d");
+
+    $sql = $database->prepare('SELECT * FROM tasks WHERE deadline = :deadline AND user_id =:id');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->bindParam(':deadline', $today);
+    $sql->execute();
+
+    $taskByDate = $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $taskByDate;
+}
