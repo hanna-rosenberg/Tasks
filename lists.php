@@ -99,8 +99,13 @@ $taskByDate = getTasksByDate($database);
                                                 <td class="done">
                                                     <ul>
                                                         <li>
-                                                            <input type="checkbox" id="checkbox" name="checkbox">
-                                                            <label for="horns"></label>
+
+                                                            <form id="tasksForm" method="post" action="/app/users/lists.php">
+                                                                <label for="checkbox"></label>
+                                                                <input type="checkbox" class="checkboxClass" name="checkbox" <?= $taskItem['completed'] ? 'checked' : '' ?>>
+                                                                <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
+                                                                <button type="submit" class="hiddenSubmit">hej</button>
+                                                            </form>
 
                                                         </li>
                                                     </ul>
@@ -228,11 +233,16 @@ $taskByDate = getTasksByDate($database);
                                     <ul>
 
                                         <li>
-                                            <input type="checkbox" id="checkbox" name="checkbox">
-                                            <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
 
-                                            <label for="horns"></label>
+                                            <form id="checkboxForm" action="/app/users/lists.php" method="post">
+                                                <label for="checkbox"></label>
+                                                <!-- // Frågetecknet är en fortkortad if-sats som kollar om $taskItemByDate är completeted, och i så fall blir den "checked" -->
+                                                <input type="checkbox" class="checkboxToday" id="checkbox" name="checkbox" <?= $taskItemByDate['completed'] ? 'checked' : '' ?>>
+                                                <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
+                                                <button type="submit" class="hiddenSubmit">hej</button>
 
+
+                                            </form>
                                         </li>
                                     </ul>
                                 </td>

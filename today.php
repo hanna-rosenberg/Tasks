@@ -7,7 +7,7 @@ $taskByDate = getTasksByDate($database);
 
 
 <?php if (sizeof($taskByDate) > 0) { ?>
-
+    <h1>What's up for Today?</h1>
     <div class="todayContainer">
 
 

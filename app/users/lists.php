@@ -24,6 +24,40 @@ if (isset($_POST['listTitle'])) {
     $statement->execute();
 };
 
+//om checkbox finns sätter jag is completed.
+$isCompleted = isset($_POST['checkbox']);
+
+
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+
+    if ($isCompleted) {
+
+        $insertSQL = ("UPDATE tasks SET completed = true WHERE id = :id");
+
+        $sql = $database->prepare($insertSQL);
+
+        $sql->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $sql->execute();
+    }
+}
+
+
+// // Checkbox values wont appear in the $_POST request if it isn't checked.
+// $isCompleted = isset($_POST['checkbox']);
+
+// if (isset($_POST['id'])) {
+//     $id = $_POST['id'];
+
+//     if ($isCompleted) {
+//         echo "The task $id is completed.";
+//     } else {
+//         echo "The task $id is not completed.";
+//     }
+
+//     // This is where you update the database.
+// }
 
 
 redirect('/lists.php');
