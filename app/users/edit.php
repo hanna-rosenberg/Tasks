@@ -32,7 +32,7 @@ if (isset($_FILES['avatar'])) {
     $sql->execute();
 
     // Här förbereds allting för att sedan hämtas, eftersom något kanske har ändrats. 
-    $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+    $sql = $database->prepare('SELECT id, name, email, profile_picture, username FROM users WHERE id = :id');
 
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
@@ -65,7 +65,7 @@ if (isset($_POST['email'])) {
     $sql->execute();
 
     // Här hämtas allting ut på nytt från databasen, eftersom något kanske har ändrats. Binds ihop och körs.
-    $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+    $sql = $database->prepare('SELECT id, name, email, profile_picture, username FROM users WHERE id = :id');
 
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
@@ -100,14 +100,14 @@ if (isset($_POST['password'])) {
     $sql->execute();
 
     // Här hämtas allting ut på nytt från databasen, eftersom något kanske har ändrats. I detta fall lösenordet.
-    $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+    // $sql = $database->prepare('SELECT * FROM users WHERE id = :id');
 
-    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    // $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
 
-    $sql->execute();
+    // $sql->execute();
 
     // Hämtar de nya uppgifterna från user arrayen och lägger dom i SESSION. 
-    $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+    // $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 
     // Ett meddelande som skrivs ut i den andra edit.php ifall man har bytt lösenord, om SESSION passwordMessage isset.
     $_SESSION['passwordMessage'] = "Your password has changed";

@@ -65,7 +65,6 @@ $taskByDate = getTasksByDate($database);
                                     </form>
 
 
-
                                 </div>
                             </ul>
                         </div>

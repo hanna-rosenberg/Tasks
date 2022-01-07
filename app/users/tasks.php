@@ -9,7 +9,7 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $task = trim(filter_var($_POST['task'], FILTER_SANITIZE_STRING));
     $date = trim(filter_var($_POST['deadline'], FILTER_SANITIZE_STRING));
-    $listId = trim(filter_var($_POST['listName'], FILTER_SANITIZE_STRING));
+    $listId = ($_POST['listName']);
     $currentUser = $_SESSION['user']['id'];
 
 
