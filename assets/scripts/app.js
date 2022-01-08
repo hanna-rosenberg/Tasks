@@ -1,20 +1,20 @@
-const form = document.querySelector('.checkboxForm');
-const taskForm = document.querySelector('.tasksForm');
-const tasks = document.querySelectorAll('.checkboxClass');
-const todayTasks = document.querySelectorAll('.checkboxToday');
+const todayForms = document.querySelectorAll('.checkboxForm');
+const taskForms = document.querySelectorAll('.tasksForm');
 
-if (todayTasks.length !== 0) {
-  todayTasks.forEach((task) => {
-    task.addEventListener('click', () => {
+if (todayForms.length !== 0) {
+  setCheckboxEventListener(todayForms);
+}
+
+if (taskForms.length !== 0) {
+  setCheckboxEventListener(taskForms);
+}
+
+// funktion för att submitta formet
+function setCheckboxEventListener(forms) {
+  forms.forEach((form) => {
+    const checkbox = form.querySelector('.checkboxClass');
+    checkbox.addEventListener('click', () => {
       form.submit();
     });
   });
-}
-
-if (tasks.length !== 0) {
-  tasks.forEach((task) => {
-    task.addEventListener('click', () => {
-      taskForm.submit();
-    });
-  });
-}
+} 
