@@ -41,6 +41,15 @@ if (isset($_POST['id'])) {
 
         $sql->execute();
     }
+    else {
+        $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");
+
+        $sql = $database->prepare($insertSQL);
+
+        $sql->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $sql->execute();
+    }
 }
 
 
@@ -59,5 +68,8 @@ if (isset($_POST['id'])) {
 //     // This is where you update the database.
 // }
 
+if(isset($_POST['checkbox'])){
+    echo"HALLÅ";
+  }
 
 redirect('/lists.php');
