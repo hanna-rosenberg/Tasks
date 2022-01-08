@@ -314,10 +314,39 @@ summary .urgent {
   justify-content: center;
 }
 
+.urgentContainer .tableNameDelete{
+width:20%;
+padding-right: 3rem;
+}
+
+.urgentContainer td.delete {
+  width: 20%;
+  padding-right: 4rem;
+}
+
 /* Styles for TODAY */
 /* .urgentContainer .table-dark td {
   width: unset;
 }  */
+
+.urgentContainer td.done {
+  padding-left:3rem;
+}
+
+.urgentContainer th.tableNames.left { 
+  padding-left:3rem;
+  padding-top: 1rem;
+}
+
+.todayContainer td.done {
+  padding-left:3rem;
+}
+
+.todayContainer th.tableNames.left { 
+  padding-left:3rem;
+  padding-top: 1rem;
+}
+
 
 .freeImg {
   height: 200px;
@@ -417,4 +446,44 @@ summary .urgent {
   .delete img {
     height: 1rem;
   }
+
+  .todayContainer td.done{
+    padding: 1rem;
+  }
+
+  details {
+    padding-left: 0;
+  }
+
+  .urgentContainer td.done {
+    padding-left:1rem;
+  }
+
+  .urgentContainer td.delete{
+  padding-right: 1rem;
+}
+
+.urgentContainer .done,
+.urgentContainer .title, 
+.urgentContainer  .description, 
+.urgentContainer .deadline, 
+.urgentContainer .edit, 
+.urgentContainer .delete {
+  padding-top:2rem;
+} 
+
+.todayContainer .done,
+.todayContainer .title, 
+.todayContainer  .description, 
+.todayContainer .deadline, 
+.todayContainer .edit, 
+.todayContainer .delete {
+  padding-top:2rem;
+} 
+
+.todayContainer td.done {
+  padding-left: 1rem;
+  padding-top:2rem;
+}
+
 }

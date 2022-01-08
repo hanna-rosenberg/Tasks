@@ -1,5 +1,5 @@
-const form = document.querySelector('#checkboxForm');
-const taskForm = document.querySelector('#tasksForm');
+const form = document.querySelector('.checkboxForm');
+const taskForm = document.querySelector('.tasksForm');
 const tasks = document.querySelectorAll('.checkboxClass');
 const todayTasks = document.querySelectorAll('.checkboxToday');
 

@@ -6,7 +6,7 @@ $taskByDate = getTasksByDate($database);
 
 
 
-<?php if (sizeof($taskByDate) > 0) { ?>
+<?php if (count($taskByDate) > 0) { ?>
     <h1>What's up for Today?</h1>
     <div class="todayContainer">
 
@@ -17,7 +17,7 @@ $taskByDate = getTasksByDate($database);
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col" class="tableNames">Completed</th>
+                    <th scope="col" class="tableNames left">Completed</th>
                     <th scope="col" class="tableNames">Title</th>
                     <th scope="col" class="tableNames">Description</th>
                     <th scope="col" class="tableNames">Deadline</th>
@@ -78,7 +78,7 @@ $taskByDate = getTasksByDate($database);
                         <td class="delete">
                             <ul>
 
-                                <form action="/app/tasks/delete.php" method="post">
+                                <form action="/app/tasks/today.php" method="post">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                     <button type="submit">
                                         <img src="/assets/images/DELETE.png">

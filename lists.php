@@ -73,7 +73,7 @@ $taskByDate = getTasksByDate($database);
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
 
                         <!-- Om det storlekn av $$tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
-                        <?php if (sizeof($tasksBylistId) > 0) { ?>
+                        <?php if (count($tasksBylistId) > 0) { ?>
 
                             <details>
                                 <summary>Show tasks</summary>
@@ -204,7 +204,7 @@ $taskByDate = getTasksByDate($database);
         </tbody>
     </table>
 
-    <?php if (sizeof($taskByDate) > 0) { ?>
+    <?php if (count($taskByDate) > 0) { ?>
         <div class="urgentContainer">
             <details>
 
@@ -214,7 +214,7 @@ $taskByDate = getTasksByDate($database);
                 <table class="table table-dark">
                     <thead>
                         <tr>
-                            <th scope="col" class="tableNames">Completed</th>
+                            <th scope="col" class="tableNames left">Completed</th>
                             <th scope="col" class="tableNames">Title</th>
                             <th scope="col" class="tableNames">Description</th>
                             <th scope="col" class="tableNames">Deadline</th>
