@@ -5,6 +5,11 @@
 * {
   font-family: 'Nunito Sans';
 }
+
+/* .bottomTask{
+  order: 1;
+} */
+
 /* style for HOME */
 .home-picture {
   display: inline-block;
@@ -216,6 +221,10 @@ table {
 }
 
 /* STYLE FOR LISTS */
+/* 
+input[type="checkbox"] :before {
+  background-color: lightpink;
+} */
 
 .hiddenSubmit {
   display: none;

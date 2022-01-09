@@ -24,6 +24,7 @@ if (isset($_POST['listTitle'])) {
     $statement->execute();
 };
 
+
 //om checkbox finns sätter jag is completed.
 $isCompleted = isset($_POST['checkbox']);
 
@@ -68,8 +69,6 @@ if (isset($_POST['id'])) {
 //     // This is where you update the database.
 // }
 
-if(isset($_POST['checkbox'])){
-    echo"HALLÅ";
-  }
+
 
 redirect('/lists.php');
