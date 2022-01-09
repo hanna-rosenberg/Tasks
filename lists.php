@@ -21,9 +21,7 @@ $taskByDate = getTasksByDate($database);
                 <input class="form-control" type="listTitle" name="listTitle" id="listTitle" placeholder="List-title" required>
 
             </div>
-
             <button type="submit" class="btn btn-dark">Add</button>
-
         </div>
     </form>
 
@@ -37,7 +35,7 @@ $taskByDate = getTasksByDate($database);
                 (Allt från lists som är kopplat till den inloggade användarens id) -->
                 <?php foreach ($allLists as $listItem) :
 
-                    // XXX
+                    // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
                     $tasksById = getTaskByListId($database, $listItem['id']);
                 ?>
 
@@ -55,8 +53,7 @@ $taskByDate = getTasksByDate($database);
                                     </form>
 
                                     <!-- Delete-knappen är i form av ett form som får med sig dold informaion. Den dolda informationen är id-numret
-                    på listan som knappen hör till. Detta är bra för att man skall veta vilken lista man skall radera sedan.-->
-
+                                    på listan som knappen hör till. Detta är bra för att man skall veta vilken lista man skall radera sedan.-->
                                     <form action="/app/lists/delete.php" method="post">
                                         <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
                                         <button type="submit">
@@ -69,10 +66,9 @@ $taskByDate = getTasksByDate($database);
                             </ul>
                         </div>
 
-                        <!-- XXX -->
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
 
-                        <!-- Om det storlekn av $$tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
+                        <!-- Om storleken av $tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
                         <?php if (count($tasksBylistId) > 0) { ?>
 
                             <details>
@@ -103,7 +99,7 @@ $taskByDate = getTasksByDate($database);
                                                                 <label for="checkbox"></label>
                                                                 <input type="checkbox" class="checkboxClass" name="checkbox" <?= $taskItem['completed'] ? 'checked' : '' ?>>
                                                                 <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
-                                                                <button type="submit" class="hiddenSubmit">hej</button>
+                                                                <button type="submit" class="hiddenSubmit"></button>
                                                             </form>
 
                                                         </li>
@@ -286,21 +282,12 @@ $taskByDate = getTasksByDate($database);
                                                 <img src="/assets/images/DELETE.png">
                                             </button>
                                         </form>
-
                                     </ul>
                                 </td>
-
                         </tr>
-
                     <?php endforeach; ?>
-
-
-
             </details>
-
         </div>
-
-
     <?php
     } ?>
 

@@ -25,13 +25,14 @@ if (isset($_POST['listTitle'])) {
 };
 
 
-//om checkbox finns sätter jag is completed.
+// Om checkbox finns (är ibockad) sätter jag iscompleted. Is completed innehåller ett true/false beroende på om den är ibockad eller ej.
 $isCompleted = isset($_POST['checkbox']);
 
-
+// POST[id] är id-numret på tasken.
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
+    // om checkboxen är ibockad, så uppdateras completed i databasen till true, kopplat till rätt task-id.
     if ($isCompleted) {
 
         $insertSQL = ("UPDATE tasks SET completed = true WHERE id = :id");
@@ -42,6 +43,8 @@ if (isset($_POST['id'])) {
 
         $sql->execute();
     }
+
+    // annars uppdateras completed till false.
     else {
         $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");
 
@@ -52,23 +55,5 @@ if (isset($_POST['id'])) {
         $sql->execute();
     }
 }
-
-
-// // Checkbox values wont appear in the $_POST request if it isn't checked.
-// $isCompleted = isset($_POST['checkbox']);
-
-// if (isset($_POST['id'])) {
-//     $id = $_POST['id'];
-
-//     if ($isCompleted) {
-//         echo "The task $id is completed.";
-//     } else {
-//         echo "The task $id is not completed.";
-//     }
-
-//     // This is where you update the database.
-// }
-
-
 
 redirect('/lists.php');
