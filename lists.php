@@ -45,7 +45,7 @@ $taskByDate = getTasksByDate($database);
                                     <form action="/update.php" method="post">
                                         <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
                                         <button type="submit">
-                                            <img src="/assets/images/EDITFIGMA.png">
+                                            <img src="/assets/images/darkedit.png">
                                         </button>
                                     </form>
 
@@ -54,7 +54,7 @@ $taskByDate = getTasksByDate($database);
                                     <form action="/app/lists/delete.php" method="post">
                                         <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
                                         <button type="submit">
-                                            <img src="/assets/images/DELETE.png">
+                                            <img src="/assets/images/darkdelete.png">
                                         </button>
                                     </form>
 
@@ -125,7 +125,7 @@ $taskByDate = getTasksByDate($database);
                                                         <form action="/updateTask.php" method="post">
                                                             <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
                                                             <button type="submit">
-                                                                <img src="/assets/images/EDITFIGMA.png">
+                                                                <img src="/assets/images/darkedit.png">
                                                             </button>
                                                         </form>
                                                     </ul>
@@ -137,7 +137,7 @@ $taskByDate = getTasksByDate($database);
                                                         <form action="/app/tasks/delete.php" method="post">
                                                             <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
                                                             <button type="submit">
-                                                                <img src="/assets/images/DELETE.png">
+                                                                <img src="/assets/images/darkdelete.png">
                                                             </button>
                                                         </form>
 
@@ -258,7 +258,7 @@ $taskByDate = getTasksByDate($database);
                                         <form action="/updateTask.php" method="post">
                                             <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                             <button type="submit">
-                                                <img src="/assets/images/EDITFIGMA.png">
+                                                <img src="/assets/images/darkedit.png">
                                             </button>
                                         </form>
                                     </ul>
@@ -270,7 +270,7 @@ $taskByDate = getTasksByDate($database);
                                         <form action="/app/tasks/delete.php" method="post">
                                             <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                             <button type="submit">
-                                                <img src="/assets/images/DELETE.png">
+                                                <img src="/assets/images/deletedark.png">
                                             </button>
                                         </form>
                                     </ul>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg navbar navbar-dark">
 
     <?php if (isset($_SESSION['user']['profile_picture'])) :
     ?>
