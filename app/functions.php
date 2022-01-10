@@ -44,7 +44,7 @@ function getTaskByListId(PDO $database, INT $listId): array
 function fetchTasks(PDO $database, int $listId): array
 {
     $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN 
-    lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :placeholderListId');
+    lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :placeholderListId ORDER BY completed');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->bindParam(':placeholderListId', $listId, PDO::PARAM_INT);
     $sql->execute();

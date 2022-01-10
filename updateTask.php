@@ -11,8 +11,6 @@ if (isset($_POST['id'])) {
     $tasks = $sql->fetch(PDO::FETCH_ASSOC);
 }
 
-// die(var_dump($tasks));
-
 ?>
 <h1>Update your Task</h1>
 

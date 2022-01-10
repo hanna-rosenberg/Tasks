@@ -38,7 +38,7 @@ $taskByDate = getTasksByDate($database);
                                     <input type="checkbox" id="checkbox" name="checkbox">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
 
-                                    <label for="horns"></label>
+                                    <label for="checkbox"></label>
 
                                 </li>
                             </ul>

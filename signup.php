@@ -1,6 +1,7 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+
 <article>
 
     <h1>Sign up</h1>
@@ -32,9 +33,18 @@
         <!-- Input for password -->
         <div class="mb-3">
             <label for="password">Password / Passphrase</label>
-            <input class="form-control" type="password" name="password" id="password" minlength="16" required>
-            <small class="form-text">Please provide with a password </small>
-        </div>
+            <input class="form-control" type="password" name="password" id="password" required>
+            <small class="form-text">Please provide with a password or passphrase. At least 16 characters required</small>
+        
+
+        <p class="error">
+                <?php if (isset($_SESSION['error'])) :
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                endif;
+                ?>
+                </p>
+                </div>
 
         <!-- Submitbutton -->
         <button type="submit" class="btn btn-dark">Sign up</button>
