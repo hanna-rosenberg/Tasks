@@ -27,17 +27,14 @@ $taskByDate = getTasksByDate($database);
 
     <!-- Tabell  -->
     <table class="table table-dark">
-
         <tbody>
-
             <tr class="edit line">
                 <!-- En foreach-loop som gör det möjligt att plocka ut de enskilda delarna i $allLists, som är det som returnas från funktionen fetchAllLists 
                 (Allt från lists som är kopplat till den inloggade användarens id) -->
                 <?php foreach ($allLists as $listItem) :
 
   // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
-                    $tasksById = getTaskByListId($database, $listItem['id']);
-                ?>
+                    $tasksById = getTaskByListId($database, $listItem['id']); ?>
 
                     <!-- Loopar ut titeln på listan -->
                     <td class="edit line">
@@ -65,11 +62,9 @@ $taskByDate = getTasksByDate($database);
                                 </div>
                             </ul>
                         </div>
-
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
                         <!-- Om storleken av $tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
                         <?php if (count($tasksBylistId) > 0) { ?>
-
                             <details>
                                 <summary>Show tasks</summary>
 
@@ -149,12 +144,11 @@ $taskByDate = getTasksByDate($database);
                                                     </ul>
                                                 </td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </details>
-                        <?php
-                        } ?>
+                          <?php } ?>
 
                         <details>
                             <summary>Create task</summary>
@@ -282,10 +276,9 @@ $taskByDate = getTasksByDate($database);
                                     </ul>
                                 </td>
                         </tr>
-                    <?php endforeach; ?>
+                            <?php endforeach; ?>
             </details>
         </div>
-    <?php
-    } ?>
+    <?php } ?>
 </article>
 <?php require __DIR__ . '/views/footer.php'; ?>
