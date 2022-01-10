@@ -33,11 +33,9 @@ $taskByDate = getTasksByDate($database);
                     <?php foreach ($taskByDate as $taskItemByDate) : ?>
                         <td class="done">
                             <ul>
-
                                 <li>
                                     <input type="checkbox" id="checkbox" name="checkbox">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
-
                                     <label for="checkbox"></label>
 
                                 </li>
@@ -71,7 +69,7 @@ $taskByDate = getTasksByDate($database);
                                     <button type="submit">
                                         <img src="/assets/images/EDITFIGMA.png">
                                     </button>
-                                </form>
+ </form>
                             </ul>
                         </td>
 

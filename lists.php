@@ -35,7 +35,7 @@ $taskByDate = getTasksByDate($database);
                 (Allt från lists som är kopplat till den inloggade användarens id) -->
                 <?php foreach ($allLists as $listItem) :
 
-                    // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
+  // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
                     $tasksById = getTaskByListId($database, $listItem['id']);
                 ?>
 
@@ -67,7 +67,6 @@ $taskByDate = getTasksByDate($database);
                         </div>
 
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
-
                         <!-- Om storleken av $tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
                         <?php if (count($tasksBylistId) > 0) { ?>
 
@@ -149,16 +148,13 @@ $taskByDate = getTasksByDate($database);
 
                                                     </ul>
                                                 </td>
-
                                         </tr>
                                     <?php endforeach; ?>
-
                                     </tbody>
                                 </table>
                             </details>
                         <?php
                         } ?>
-
 
                         <details>
                             <summary>Create task</summary>
@@ -235,7 +231,7 @@ $taskByDate = getTasksByDate($database);
                                                 <!-- // Frågetecknet är en fortkortad if-sats som kollar om $taskItemByDate är completeted, och i så fall blir den "checked" -->
                                                 <input type="checkbox" class="checkboxClass" id="checkbox" name="checkbox" <?= $taskItemByDate['completed'] ? 'checked' : '' ?>>
                                                 <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
-                                                <button type="submit" class="hiddenSubmit">hej</button>
+                                                <button type="submit" class="hiddenSubmit"></button>
 
 
                                             </form>
@@ -291,7 +287,5 @@ $taskByDate = getTasksByDate($database);
         </div>
     <?php
     } ?>
-
 </article>
-
 <?php require __DIR__ . '/views/footer.php'; ?>
