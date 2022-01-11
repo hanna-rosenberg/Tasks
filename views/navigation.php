@@ -16,7 +16,6 @@
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php">Home</a>
         </li>
 
-
         <?php if (isset($_SESSION['user'])) : ?>
 
             <li class="nav-item">

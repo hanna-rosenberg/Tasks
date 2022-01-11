@@ -43,7 +43,6 @@ if (isset($_POST['id'])) {
 
         $sql->execute();
     }
-
     // annars uppdateras completed till false.
     else {
         $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");

@@ -17,19 +17,20 @@
 
         </div>
 
-        <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en 
+        <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en
         $_SESSION[message] och om det gör det så echoas meddelandet "Your profile pic has changed" ut. Session unsetas -->
-        <p class="sessionMessageEdit"> <?php if (isset($_SESSION['message'])) :
-                                            echo $_SESSION['message'];
-                                            unset($_SESSION['message']);
+        <p class="sessionMessageEdit">
+            <?php if (isset($_SESSION['message'])) :
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
 
-                                            // Finns det en profile_picture i users-arrayen visas den här.
-                                            if (isset($_SESSION['user']['profile_picture'])) :
-                                        ?>
+                // Finns det en profile_picture i users-arrayen visas den här.
+                if (isset($_SESSION['user']['profile_picture'])) :
+            ?>
         <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
 
 <?php endif;
-                                        endif; ?>
+            endif; ?>
 </p>
     </form>
 
@@ -52,9 +53,8 @@
     <p class="sessionMessageEdit"><?php if (isset($_SESSION['emailMessage'])) :
                                         echo $_SESSION['emailMessage'];
                                         unset($_SESSION['emailMessage']);
-
-                                    endif;
-                                    ?></p>
+                                    endif; ?>
+    </p>
 
 </div>
 
@@ -74,9 +74,7 @@
     <p class="sessionMessageEdit"> <?php if (isset($_SESSION['passwordMessage'])) :
                                         echo $_SESSION['passwordMessage'];
                                         unset($_SESSION['passwordMessage']);
-
-                                    endif;
-                                    ?>
+                                    endif; ?>
     </p>
 </div>
 

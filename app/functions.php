@@ -8,7 +8,7 @@ function redirect(string $path)
     exit;
 }
 
-// Hämtar alla listor tillhörande den inloggade personen.
+//Hämtar alla listor tillhörande den inloggade personen.
 function fetchAllLists(PDO $database): array
 {
     $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
@@ -17,7 +17,6 @@ function fetchAllLists(PDO $database): array
 
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
-
 
 function fetchAllTasks(PDO $database): array
 {
@@ -30,8 +29,8 @@ function fetchAllTasks(PDO $database): array
     return $allTasks;
 }
 
-// Hämtar allt från tasks med matchande list-id.
-function getTaskByListId(PDO $database, INT $listId): array
+//Hämtar allt från tasks med matchande list-id.
+function getTaskByListId(PDO $database, int $listId): array
 {
     $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
     $sql->bindParam(':id', $listId, PDO::PARAM_INT);
@@ -40,7 +39,7 @@ function getTaskByListId(PDO $database, INT $listId): array
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Hämtar data från min task-tabell, och kopplar ihop den med rätt list_id!
+//Hämtar data från min task-tabell, och kopplar ihop den med rätt list_id!
 function fetchTasks(PDO $database, int $listId): array
 {
     $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN
@@ -52,8 +51,6 @@ function fetchTasks(PDO $database, int $listId): array
     $allTasks = $sql->fetchAll(PDO::FETCH_ASSOC);
     return $allTasks;
 }
-
-
 
 function getTasksByDate(PDO $database): array
 {

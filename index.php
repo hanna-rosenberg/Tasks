@@ -8,8 +8,7 @@
         <!-- Om användaren INTE är inloggad så syns "välkomstbilden"  -->
         <?php if (!isset($_SESSION['user'])) { ?>
             <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePage"></div>
-        <?php
-        }; ?>
+        <?php }; ?>
 
         <!-- Namnet på sidan visas  -->
         <h1><?php echo $config['title']; ?></h1>
@@ -22,10 +21,9 @@
         <?php if (isset($_SESSION['user'])) : ?>
             <p class="greeting">Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
 
-            <?php
-            // Om användaren är inloggad och har en profilbild visas även profilbilden.
-            if (isset($_SESSION['user']['profile_picture'])) :
-            ?>
+            <!-- Om användaren är inloggad och har en profilbild visas även profilbilden. -->
+            <?php if (isset($_SESSION['user']['profile_picture'])) :  ?>
+
                 <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
 
             <?php else : ?>

@@ -93,8 +93,9 @@ $taskByDate = getTasksByDate($database);
         <?php } else { ?>
             <div class="free"><img src="/assets/images/bird.png" class="freeImg">
                 <h1>Free!</h1>
-            <?php } ?>
             </div>
+        <?php } ?>
+
     </div>
 
     <?php require __DIR__ . '/views/footer.php'; ?>

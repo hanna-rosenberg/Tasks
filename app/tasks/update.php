@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// Fältet i formluläret som heter 'id' är i fyllt automatiskt pga "hidden" info till Post. Man har klickat på knappen. 
-// VARFÖR FÖRSVINNER DESCRIPTION NÄR JAG ÄNDRAR TITEL ELLER DESCRIPTION?
+// Fältet i formluläret som heter 'id' är i fyllt automatiskt pga "hidden" info till Post. Man har klickat på knappen.
 if (isset($_POST['id'], $_POST['title'], $_POST['task'], $_POST['deadline'])) {
     $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
     $taskId = trim(filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT));

@@ -16,7 +16,7 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'
     // här läggs det inskriva in i databasen på ett säkrare sätt med hjälp av tomma "placeholders".
     // $statement = $database->prepare('INSERT INTO lists VALUES (:id, :user_id, :title)');
 
-    $statement = $database->prepare("INSERT INTO tasks (title, description, deadline, user_id, list_id, completed) 
+    $statement = $database->prepare("INSERT INTO tasks (title, description, deadline, user_id, list_id, completed)
     VALUES (:placeholderTitle, :placeholderTask, :placeholderDeadline, :placeholderID, :placeholderListId, false)");
     $statement->bindParam(':placeholderTitle', $title, PDO::PARAM_STR);
     $statement->bindParam(':placeholderTask', $task, PDO::PARAM_STR);
@@ -28,7 +28,6 @@ if (isset($_POST['title'], $_POST['task'], $_POST['deadline'], $_POST['listName'
     $statement->execute();
 
     // $_SESSION['user'] = $statement->fetch(PDO::FETCH_ASSOC);
-
 }
 
 
