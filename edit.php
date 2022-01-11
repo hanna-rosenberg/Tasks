@@ -20,7 +20,8 @@
         <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en
         $_SESSION[message] och om det gör det så echoas meddelandet "Your profile pic has changed" ut. Session unsetas -->
         <p class="sessionMessageEdit">
-            <?php if (isset($_SESSION['message'])) :
+            <?php
+            if (isset($_SESSION['message'])) :
                 echo $_SESSION['message'];
                 unset($_SESSION['message']);
 
@@ -33,7 +34,6 @@
             endif; ?>
 </p>
     </form>
-
 </div>
 
 
@@ -46,14 +46,14 @@
 
             <button type="submit" class="btn btn-dark">Save</button>
         </div>
-
     </form>
 
     <!-- Här kollar jag om det finns ett emailMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your mail has changed". -->
-    <p class="sessionMessageEdit"><?php if (isset($_SESSION['emailMessage'])) :
-                                        echo $_SESSION['emailMessage'];
-                                        unset($_SESSION['emailMessage']);
-                                    endif; ?>
+    <p class="sessionMessageEdit">
+        <?php if (isset($_SESSION['emailMessage'])) :
+            echo $_SESSION['emailMessage'];
+            unset($_SESSION['emailMessage']);
+        endif; ?>
     </p>
 
 </div>
@@ -71,10 +71,11 @@
     </form>
 
     <!-- Här kollar jag om det finns ett passwordMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your password has changed". -->
-    <p class="sessionMessageEdit"> <?php if (isset($_SESSION['passwordMessage'])) :
-                                        echo $_SESSION['passwordMessage'];
-                                        unset($_SESSION['passwordMessage']);
-                                    endif; ?>
+    <p class="sessionMessageEdit">
+        <?php if (isset($_SESSION['passwordMessage'])) :
+            echo $_SESSION['passwordMessage'];
+            unset($_SESSION['passwordMessage']);
+        endif; ?>
     </p>
 </div>
 

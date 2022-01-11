@@ -32,7 +32,7 @@ $isCompleted = isset($_POST['checkbox']);
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    // om checkboxen är ibockad, så uppdateras completed i databasen till true, kopplat till rätt task-id.
+    //Om checkboxen är ibockad, så uppdateras completed i databasen till true, kopplat till rätt task-id.
     if ($isCompleted) {
 
         $insertSQL = ("UPDATE tasks SET completed = true WHERE id = :id");
@@ -43,7 +43,8 @@ if (isset($_POST['id'])) {
 
         $sql->execute();
     }
-    // annars uppdateras completed till false.
+
+    //Annars uppdateras completed till false.
     else {
         $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");
 

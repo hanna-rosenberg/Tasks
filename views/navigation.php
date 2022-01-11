@@ -22,7 +22,6 @@
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/edit.php">Profile</a>
             </li>
 
-
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/today.php' ? 'active' : ''; ?>" href="/today.php">Today</a>
             </li>

@@ -101,9 +101,6 @@ if (isset($_POST['email'])) {
     $_SESSION['passwordMessage'] = "Your password has changed";
 }
 
-?>
-
-<?php
 redirect('/edit.php')
 ?>
 

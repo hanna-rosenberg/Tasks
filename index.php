@@ -25,7 +25,6 @@
             <?php if (isset($_SESSION['user']['profile_picture'])) :  ?>
 
                 <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
-
             <?php else : ?>
 
                 <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePageSmallImg"></div>

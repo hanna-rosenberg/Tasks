@@ -88,8 +88,6 @@ $taskByDate = getTasksByDate($database);
 
             <?php endforeach; ?>
 
-
-
         <?php } else { ?>
             <div class="free"><img src="/assets/images/bird.png" class="freeImg">
                 <h1>Free!</h1>
