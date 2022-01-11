@@ -1,12 +1,16 @@
-INSERT MANDATORY GIF
+<img src="https://media.giphy.com/media/L46ihZAH8bZR9ZXzpR/giphy.gif">
 
-# Project Title
+# To Do!
 
-Text about the project and why it exists. This would also be a great place to link the project online.
+This site will help you organize your chaos.
+
+Link to Github: https://github.com/hanna-rosenberg/Tasks
 
 # Installation
 
-Add the installation instructions.
+1. Clone the repository to your computer.
+2. Start a local server in the command line.
+3. Open the index.html file in your browser.
 
 # Code Review
 
@@ -27,5 +31,5 @@ Code review written by [Jane Doh](https://github.com/username).
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
+1. Jennifer Andersson
+2. Johanna Jönsson
