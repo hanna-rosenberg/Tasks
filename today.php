@@ -34,10 +34,12 @@ $taskByDate = getTasksByDate($database);
                         <td class="done">
                             <ul>
                                 <li>
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
-                                    <label for="checkbox"></label>
-
+                                    <form class="deadlineToday" method="post" action="/app/users/lists.php">
+                                        <input type="checkbox" class="checkboxClass" name="checkbox" id="checkbox" <?= $taskItemByDate['completed'] ? 'checked' : '' ?>>
+                                        <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
+                                        <input type="hidden" value="true" name="today" />
+                                        <label for="checkbox"></label>
+                                        <button type="submit" class="hiddenSubmit"></button>
                                 </li>
                             </ul>
                         </td>
@@ -62,14 +64,12 @@ $taskByDate = getTasksByDate($database);
 
                         <td class="edit">
                             <ul>
-
-
                                 <form action="/updateTask.php" method="post">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                     <button type="submit">
-                                        <img src="/assets/images/EDITFIGMA.png">
+                                        <img src="/assets/images/darkedit.png">
                                     </button>
- </form>
+                                </form>
                             </ul>
                         </td>
 
@@ -79,13 +79,11 @@ $taskByDate = getTasksByDate($database);
                                 <form action="/app/tasks/today.php" method="post">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                     <button type="submit">
-                                        <img src="/assets/images/DELETE.png">
+                                        <img src="/assets/images/darkdelete.png">
                                     </button>
                                 </form>
-
                             </ul>
                         </td>
-
                 </tr>
 
             <?php endforeach; ?>
@@ -94,8 +92,9 @@ $taskByDate = getTasksByDate($database);
 
         <?php } else { ?>
             <div class="free"><img src="/assets/images/bird.png" class="freeImg">
-                <h1>Free!</h1><?php
-                            } ?>
+                <h1>Free!</h1>
+            <?php } ?>
             </div>
-
     </div>
+
+    <?php require __DIR__ . '/views/footer.php'; ?>

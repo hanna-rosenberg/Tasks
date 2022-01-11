@@ -8,7 +8,7 @@ function redirect(string $path)
     exit;
 }
 
-// Hämtar alla listor tillhörande den inloggade personen. 
+// Hämtar alla listor tillhörande den inloggade personen.
 function fetchAllLists(PDO $database): array
 {
     $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
@@ -21,7 +21,7 @@ function fetchAllLists(PDO $database): array
 
 function fetchAllTasks(PDO $database): array
 {
-    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN 
+    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN
     lists on tasks.list_id = lists.id WHERE lists.user_id = :id');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->execute();
@@ -43,7 +43,7 @@ function getTaskByListId(PDO $database, INT $listId): array
 // Hämtar data från min task-tabell, och kopplar ihop den med rätt list_id!
 function fetchTasks(PDO $database, int $listId): array
 {
-    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN 
+    $sql = $database->prepare('SELECT tasks.* , lists.title AS listTitle FROM tasks INNER JOIN
     lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :placeholderListId ORDER BY completed');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->bindParam(':placeholderListId', $listId, PDO::PARAM_INT);
@@ -57,7 +57,6 @@ function fetchTasks(PDO $database, int $listId): array
 
 function getTasksByDate(PDO $database): array
 {
-
     $today = date("Y-m-d");
 
     $sql = $database->prepare('SELECT * FROM tasks WHERE deadline = :deadline AND user_id =:id');
