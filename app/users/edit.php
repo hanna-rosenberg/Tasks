@@ -105,5 +105,3 @@ endif;
 
 redirect('/edit.php')
 ?>
-
-<!-- <img src="<?= $destination ?>"> XXX vad är detta? Är det utkommenterat eller ej? -->

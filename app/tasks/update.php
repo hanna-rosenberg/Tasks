@@ -28,9 +28,4 @@ if (isset($_POST['id'], $_POST['title'], $_POST['task'], $_POST['deadline'])) {
     $sql->execute();
 }
 
-
-
 redirect('/lists.php');
-
-
-redirect('/');
