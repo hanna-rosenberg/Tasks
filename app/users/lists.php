@@ -38,9 +38,7 @@ if (isset($_POST['id'])) {
         $sql = $database->prepare($insertSQL);
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
         $sql->execute();
-    }
-    // Annars uppdateras completed till false.
-    else {
+    } else {
         $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");
         $sql = $database->prepare($insertSQL);
         $sql->bindParam(':id', $id, PDO::PARAM_INT);

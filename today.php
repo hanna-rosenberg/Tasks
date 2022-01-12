@@ -26,7 +26,6 @@ $taskByDate = getTasksByDate($database);
             <tbody>
                 <tr>
                     <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren, som har deadline idag-->
-
                     <?php foreach ($taskByDate as $taskItemByDate) : ?>
                         <td class="done">
                             <ul>
@@ -82,7 +81,6 @@ $taskByDate = getTasksByDate($database);
                             </ul>
                         </td>
                 </tr>
-
             <?php endforeach; ?>
 
         <?php } else { ?>

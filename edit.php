@@ -26,10 +26,8 @@
                 unset($_SESSION['message']);
 
                 // Finns det en profile_picture i users-arrayen visas den här.
-                if (isset($_SESSION['user']['profile_picture'])) :
-            ?>
+                if (isset($_SESSION['user']['profile_picture'])) : ?>
         <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
-
     <?php endif; ?>
 <?php endif; ?>
 </p>
