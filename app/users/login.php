@@ -25,10 +25,8 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     //Jämför lösenordet som finns i POST (det som användaren skrivit in ($_POST['password']) med det hashade lösenordet som finns i databasen ($user['password'])
     if (password_verify($_POST['password'], $user['password'])) {
-
         //Om lösenordet stämde - tas det bort från $user-variabeln, för man vill inte spara lösenord i en session.
         unset($user['password']);
-
         //Här läggs de övriga uppgifterna i $user-variabeln in i en session (profilbilden från databasen, nickname osv). Bra om jag senare vill skriva ut
         //uppgifter som den inloggade användaren fyllt i.
         $_SESSION['user'] = $user;

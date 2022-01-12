@@ -30,8 +30,8 @@
             ?>
         <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
 
-<?php endif;
-            endif; ?>
+    <?php endif; ?>
+<?php endif; ?>
 </p>
     </form>
 </div>

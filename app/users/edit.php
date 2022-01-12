@@ -5,7 +5,6 @@ require __DIR__ . '/../autoload.php';
 
 //Om man lagt något i 'avatar' så..
 if (isset($_FILES['avatar'])) {
-
     //$_FILES är en array. I raden nedan tar jag 'name' från 'avatar' och "rengör" den och sparar det "rengjorda" i en variabel.
     $avatarImage = trim(filter_var($_FILES['avatar']['name'], FILTER_SANITIZE_STRING));
 
@@ -49,7 +48,6 @@ if (isset($_FILES['avatar'])) {
 
 //Här kommer kod för att byta e-post! Om det ligger något i POST från forumläret som heter email så...
 if (isset($_POST['email'])) {
-
     //Hämtar, "rengör" det man skrivit in i formuläret, ser till att det är en email, och lägger den då nya e-post-adressen i en variabel som heter $new.
     $new = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
 
@@ -82,7 +80,6 @@ if (isset($_POST['email'])) {
 
 <!-- Här kommer kod för att byta lösenord. Om något fyllts i i formuläret 'password' så.. -->
 <?php if (isset($_POST['password'])) {
-
     //Hämtar,"hashar" det man skrivit in i formuläret och lägger det nya lösenordet i en variabel som heter $newPassword.
     $newPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 

@@ -10,9 +10,6 @@ $taskByDate = getTasksByDate($database);
     <h1>What's up for Today?</h1>
     <div class="todayContainer">
 
-
-        <!-- <img src="/assets/images/today.png" class="todayImg"> -->
-
         <!-- Här skall det som har deadline idag loopas ut! -->
         <table class="table table-dark">
             <thead>

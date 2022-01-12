@@ -17,7 +17,6 @@
         </li>
 
         <?php if (isset($_SESSION['user'])) : ?>
-
             <li class="nav-item">
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="/edit.php">Profile</a>
             </li>

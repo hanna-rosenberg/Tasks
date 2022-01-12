@@ -32,31 +32,23 @@ $isCompleted = isset($_POST['checkbox']);
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    //Om checkboxen är ibockad, så uppdateras completed i databasen till true, kopplat till rätt task-id.
+    // Om checkboxen är ibockad, så uppdateras completed i databasen till true, kopplat till rätt task-id.
     if ($isCompleted) {
-
         $insertSQL = ("UPDATE tasks SET completed = true WHERE id = :id");
-
         $sql = $database->prepare($insertSQL);
-
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
-
         $sql->execute();
     }
-
-    //Annars uppdateras completed till false.
+    // Annars uppdateras completed till false.
     else {
         $insertSQL = ("UPDATE tasks SET completed = false WHERE id = :id");
-
         $sql = $database->prepare($insertSQL);
-
         $sql->bindParam(':id', $id, PDO::PARAM_INT);
-
         $sql->execute();
     }
 }
 
-// kanske inte så snyggt, men för att redirecta till today.php om man blippar i checkbox. som strukturen såg ut kom man till lists.php.
+// Kanske inte så snyggt, men för att redirecta till today.php om man blippar i checkbox. som strukturen såg ut kom man till lists.php.
 if (isset($_POST['today'])) {
     redirect('/today.php');
 }

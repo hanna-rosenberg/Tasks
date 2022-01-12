@@ -32,7 +32,6 @@ $taskByDate = getTasksByDate($database);
                 <!-- En foreach-loop som gör det möjligt att plocka ut de enskilda delarna i $allLists, som är det som returnas från funktionen fetchAllLists
                 (Allt från lists som är kopplat till den inloggade användarens id) -->
                 <?php foreach ($allLists as $listItem) :
-
                     // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
                     $tasksById = getTaskByListId($database, $listItem['id']); ?>
 
@@ -57,7 +56,6 @@ $taskByDate = getTasksByDate($database);
                                             <img src="/assets/images/darkdelete.png">
                                         </button>
                                     </form>
-
 
                                 </div>
                             </ul>
@@ -274,8 +272,9 @@ $taskByDate = getTasksByDate($database);
                                     </ul>
                                 </td>
                         </tr>
-                    <?php endforeach; ?>
             </details>
+        <?php endforeach; ?>
+
         </div>
     <?php } ?>
 </article>
