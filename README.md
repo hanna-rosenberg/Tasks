@@ -14,18 +14,18 @@ Link to Github: https://github.com/hanna-rosenberg/Tasks
 
 # Code Review
 
-Code review written by [Jane Doh](https://github.com/username).
+Code review written by [Emma Ramstedt](https://github.com/deliciaes).
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-3. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-4. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-5. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-6. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-7. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-8. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-9. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-10. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+1. `lists.php:272` - There is a quotation mark missing at the end of alt="Cross for delete>
+2. `app/tasks/update.php:36` - You have two redirects here. The latter will never be executed, so you can remove one of them.
+3. Tip - I noticed that the file upload have spaces in their names. Could be worth considering avoiding spaces in file names.
+4. Tip - Try to use htmlspecialchars() function where the users data is being printed, to avoid any shenanigans.
+5. Tip - Files that should only be accessed when logged in can be accessed if you know the URL. Consider adding a function at the top of these pages that redirect the user somewhere else if they are not logged in.
+6. `app/asstes/styles/app.css` - It can be worth to split the css in to smaller files for easier readability.
+7. Tip - The files app/users/tasks.php and app/users/lists.php might belong better under app/lists and app/posts for a better file structure.
+8. Tip - Currently the user gets an error 500 when trying to register with an email that already exists. Consider checking the email against the database first and redirect the user along with an error message if the email already exists.
+9. Tip - Consider having your comments in English in case the reader doesn't understand Swedish.
+10. `app/users/edit.php:104` - The tags <!-- --> does not work with php. Use // to comment out the row!
 
 # Testers
 
