@@ -24,9 +24,10 @@ $taskByDate = getTasksByDate($database);
             </thead>
 
             <tbody>
-                <tr>
-                    <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren, som har deadline idag-->
-                    <?php foreach ($taskByDate as $taskItemByDate) : ?>
+
+                <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren, som har deadline idag-->
+                <?php foreach ($taskByDate as $taskItemByDate) : ?>
+                    <tr>
                         <td class="done">
                             <ul>
                                 <li>
@@ -79,8 +80,8 @@ $taskByDate = getTasksByDate($database);
                                 </form>
                             </ul>
                         </td>
-                </tr>
-            <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
     </div>
 <?php else : ?>
     <div class="free"><img src="/assets/images/bird.png" class="freeImg" alt="Linedrawing of bird">
