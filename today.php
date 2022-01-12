@@ -79,14 +79,15 @@ $taskByDate = getTasksByDate($database);
                                 </form>
                             </ul>
                         </td>
-                    <?php endforeach; ?>
                 </tr>
-            <?php else : ?>
-                <div class="free"><img src="/assets/images/bird.png" class="freeImg" alt="Linedrawing of bird">
-                    <h1>Free!</h1>
-                </div>
-            <?php endif; ?>
-
+            <?php endforeach; ?>
     </div>
+<?php else : ?>
+    <div class="free"><img src="/assets/images/bird.png" class="freeImg" alt="Linedrawing of bird">
+        <h1>Free!</h1>
+    </div>
+<?php endif; ?>
 
-    <?php require __DIR__ . '/views/footer.php'; ?>
+
+
+<?php require __DIR__ . '/views/footer.php'; ?>
