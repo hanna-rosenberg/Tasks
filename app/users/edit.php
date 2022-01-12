@@ -80,6 +80,13 @@ if (isset($_POST['email'])) {
 
 <!-- Här kommer kod för att byta lösenord. Om något fyllts i i formuläret 'password' så.. -->
 <?php if (isset($_POST['password'])) {
+
+
+    if (strlen($_POST['password']) < 16) {
+        $_SESSION['error'] = 'Password needs to be at least 16 characters';
+        redirect('/edit.php');
+    }
+
     //Hämtar,"hashar" det man skrivit in i formuläret och lägger det nya lösenordet i en variabel som heter $newPassword.
     $newPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 

@@ -14,9 +14,6 @@
 .checkboxClass :before {
   background-color: red;
 }
-/* .bottomTask{
-  order: 1;
-} */
 
 /* style for HOME */
 .home-picture {
@@ -156,7 +153,6 @@ input[type='file'] {
 }
 
 /* style for NAVIGATION */
-
 a:hover {
   color: #343a40 !important;
   font-size: 18px;
@@ -233,7 +229,6 @@ p {
 }
 
 td .name-form {
-  /* background-color: #343a40; */
   border: honeydew;
 }
 .name-form {
@@ -268,11 +263,6 @@ table {
 }
 
 /* STYLE FOR LISTS */
-/*
-input[type="checkbox"] :before {
-  background-color: lightpink;
-} */
-
 .hiddenSubmit {
   display: none;
 }
@@ -396,11 +386,6 @@ summary .urgent {
   padding-right: 4rem;
 }
 
-/* Styles for TODAY */
-/* .urgentContainer .table-dark td {
-  width: unset;
-}  */
-
 .urgentContainer td.done {
   padding-left: 3rem;
 }
@@ -498,7 +483,7 @@ summary .urgent {
 
 @media only screen and (max-width: 567px) {
   li {
-    font-size: 10px;
+    font-size: 14px;
   }
   .table-dark {
     display: inline-block;

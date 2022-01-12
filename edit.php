@@ -68,6 +68,14 @@
     </form>
 
     <!-- Här kollar jag om det finns ett passwordMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your password has changed". -->
+
+    <p class="error">
+        <?php if (isset($_SESSION['error'])) :
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        endif;
+        ?>
+    </p>
     <p class="sessionMessageEdit">
         <?php if (isset($_SESSION['passwordMessage'])) :
             echo $_SESSION['passwordMessage'];
