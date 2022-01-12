@@ -62,7 +62,7 @@ $taskByDate = getTasksByDate($database);
                         </div>
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
                         <!-- Om storleken av $tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
-                        <?php if (count($tasksBylistId) > 0) { ?>
+                        <?php if (count($tasksBylistId) > 0) : ?>
                             <details>
                                 <summary>Show tasks</summary>
 
@@ -80,9 +80,9 @@ $taskByDate = getTasksByDate($database);
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
-                                            <?php foreach ($tasksBylistId as $taskItem) : ?>
+                                        <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
+                                        <?php foreach ($tasksBylistId as $taskItem) : ?>
+                                            <tr>
                                                 <td class="done">
                                                     <ul>
                                                         <li>
@@ -139,13 +139,13 @@ $taskByDate = getTasksByDate($database);
 
                                                     </ul>
                                                 </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </details>
 
-                        <?php } ?>
+                        <?php endif; ?>
 
                         <details>
                             <summary>Create task</summary>
@@ -188,7 +188,7 @@ $taskByDate = getTasksByDate($database);
         </tbody>
     </table>
 
-    <?php if (count($taskByDate) > 0) { ?>
+    <?php if (count($taskByDate) > 0) : ?>
         <div class="urgentContainer">
             <details>
 
@@ -277,6 +277,6 @@ $taskByDate = getTasksByDate($database);
         <?php endforeach; ?>
 
         </div>
-    <?php } ?>
+    <?php endif; ?>
 </article>
 <?php require __DIR__ . '/views/footer.php'; ?>

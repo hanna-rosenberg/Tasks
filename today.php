@@ -63,7 +63,7 @@ $taskByDate = getTasksByDate($database);
                                 <form action="/updateTask.php" method="post">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                     <button type="submit">
-                                        <img src="/assets/images/darkedit.png">
+                                        <img src="/assets/images/darkedit.png" alt="pen for edit">
                                     </button>
                                 </form>
                             </ul>
@@ -71,23 +71,21 @@ $taskByDate = getTasksByDate($database);
 
                         <td class="delete">
                             <ul>
-
                                 <form action="/app/tasks/today.php" method="post">
                                     <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                     <button type="submit">
-                                        <img src="/assets/images/darkdelete.png">
+                                        <img src="/assets/images/darkdelete.png" alt="cross for delete">
                                     </button>
                                 </form>
                             </ul>
                         </td>
+                    <?php endforeach; ?>
                 </tr>
-            <?php endforeach; ?>
-
-        <?php } else { ?>
-            <div class="free"><img src="/assets/images/bird.png" class="freeImg">
-                <h1>Free!</h1>
-            </div>
-        <?php } ?>
+            <?php } else { ?>
+                <div class="free"><img src="/assets/images/bird.png" class="freeImg" alt="Linedrawing of bird">
+                    <h1>Free!</h1>
+                </div>
+            <?php } ?>
 
     </div>
 
