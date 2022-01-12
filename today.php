@@ -6,7 +6,7 @@ $taskByDate = getTasksByDate($database);
 
 
 
-<?php if (count($taskByDate) > 0) { ?>
+<?php if (count($taskByDate) > 0) : ?>
     <h1>What's up for Today?</h1>
     <div class="todayContainer">
 
@@ -81,11 +81,11 @@ $taskByDate = getTasksByDate($database);
                         </td>
                     <?php endforeach; ?>
                 </tr>
-            <?php } else { ?>
+            <?php else : ?>
                 <div class="free"><img src="/assets/images/bird.png" class="freeImg" alt="Linedrawing of bird">
                     <h1>Free!</h1>
                 </div>
-            <?php } ?>
+            <?php endif; ?>
 
     </div>
 

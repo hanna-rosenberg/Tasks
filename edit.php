@@ -20,19 +20,16 @@
         <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en
         $_SESSION[message] och om det gör det så echoas meddelandet "Your profile pic has changed" ut. Session unsetas -->
         <p class="sessionMessageEdit">
-            <?php
-            if (isset($_SESSION['message'])) :
+            <?php if (isset($_SESSION['message'])) :
                 echo $_SESSION['message'];
-                unset($_SESSION['message']);
+                unset($_SESSION['message']); ?>
+            <?php endif; ?>
+        </p>
+        <!-- Finns det en profile_picture i users-arrayen visas den här. -->
+        <?php if (isset($_SESSION['user']['profile_picture'])) : ?>
+            <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
+        <?php endif; ?>
 
-                // Finns det en profile_picture i users-arrayen visas den här.
-                if (isset($_SESSION['user']['profile_picture'])) : ?>
-        <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
-<?php
-                endif;
-
-            endif; ?>
-</p>
     </form>
 </div>
 
