@@ -269,7 +269,7 @@ $taskByDate = getTasksByDate($database);
                                         <form action="/app/tasks/delete.php" method="post">
                                             <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                             <button type="submit">
-                                                <img src="/assets/images/darkdelete.png" alt="Cross for delete>
+                                                <img src="/assets/images/darkdelete.png" alt="Cross for delete">
                                             </button>
                                         </form>
                                     </ul>

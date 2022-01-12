@@ -9,8 +9,9 @@ Link to Github: https://github.com/hanna-rosenberg/Tasks
 # Installation
 
 1. Clone the repository to your computer.
-2. Start a local server in the command line.
-3. Open the index.html file in your browser.
+2. Add a folder named "uploads" to the root of the project.
+3. Start a local server in the command line.
+4. Open the index.html file in your browser.
 
 # Code Review
 

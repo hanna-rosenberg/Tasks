@@ -79,9 +79,7 @@ if (isset($_POST['email'])) {
 
 
 <!-- Här kommer kod för att byta lösenord. Om något fyllts i i formuläret 'password' så.. -->
-<?php if (isset($_POST['password'])) {
-
-
+<?php if (isset($_POST['password'])) :
     if (strlen($_POST['password']) < 16) {
         $_SESSION['error'] = 'Password needs to be at least 16 characters';
         redirect('/edit.php');
@@ -103,7 +101,7 @@ if (isset($_POST['email'])) {
 
     //Ett meddelande som skrivs ut i den andra edit.php ifall man har bytt lösenord, om SESSION passwordMessage isset.
     $_SESSION['passwordMessage'] = "Your password has changed";
-}
+endif;
 
 redirect('/edit.php')
 ?>
