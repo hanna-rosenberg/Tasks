@@ -53,7 +53,7 @@ $taskByDate = getTasksByDate($database);
                                     <form action="/app/lists/delete.php" method="post">
                                         <input type="hidden" value="<?= $listItem['id'] ?>" name="id" />
                                         <button type="submit">
-                                            <img src="/assets/images/darkdelete.png">
+                                            <img src="/assets/images/darkdelete.png" alt="Cross for delete">
                                         </button>
                                     </form>
 
@@ -61,7 +61,7 @@ $taskByDate = getTasksByDate($database);
                             </ul>
                         </div>
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
-                        <!-- Om storleken av $tasksBylistId är större än 0 visas bara "show tasks". Annars visas den ej.  -->
+                        <!-- Om storleken av $tasksBylistId är större än 0 visas bara " show tasks". Annars visas den ej. -->
                         <?php if (count($tasksBylistId) > 0) : ?>
                             <details>
                                 <summary>Show tasks</summary>
@@ -133,7 +133,7 @@ $taskByDate = getTasksByDate($database);
                                                         <form action="/app/tasks/delete.php" method="post">
                                                             <input type="hidden" value="<?= $taskItem['id'] ?>" name="id" />
                                                             <button type="submit">
-                                                                <img src="/assets/images/darkdelete.png">
+                                                                <img src="/assets/images/darkdelete.png" alt="Cross for delete">
                                                             </button>
                                                         </form>
 
@@ -152,7 +152,7 @@ $taskByDate = getTasksByDate($database);
 
                             <!-- Klickar man på Create task visas formsen nedan. -->
 
-                            <form action="app/users/tasks.php" method="post">
+                            <form action=" app/users/tasks.php" method="post">
                                 <input type="hidden" name="listName" value="<?php echo $listItem['id'] ?>" id="title">
 
                                 <div class="name-form">
@@ -192,7 +192,7 @@ $taskByDate = getTasksByDate($database);
         <div class="urgentContainer">
             <details>
 
-                <summary><img src="/assets/images/today.png" class="urgent"></summary>
+                <summary><img src="/assets/images/today.png" class="urgent" alt="Today!-text"></summary>
 
                 <!-- Här skall det som har deadline idag loopas ut! -->
                 <table class="table table-dark">
@@ -257,7 +257,7 @@ $taskByDate = getTasksByDate($database);
                                         <form action="/updateTask.php" method="post">
                                             <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                             <button type="submit">
-                                                <img src="/assets/images/darkedit.png">
+                                                <img src="/assets/images/darkedit.png" alt="Pen for edit">
                                             </button>
                                         </form>
                                     </ul>
@@ -269,7 +269,7 @@ $taskByDate = getTasksByDate($database);
                                         <form action="/app/tasks/delete.php" method="post">
                                             <input type="hidden" value="<?= $taskItemByDate['id'] ?>" name="id" />
                                             <button type="submit">
-                                                <img src="/assets/images/darkdelete.png">
+                                                <img src="/assets/images/darkdelete.png" alt="Cross for delete>
                                             </button>
                                         </form>
                                     </ul>

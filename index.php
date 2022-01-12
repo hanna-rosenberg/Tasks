@@ -7,7 +7,7 @@
 
         <!-- Om användaren INTE är inloggad så syns "välkomstbilden"  -->
         <?php if (!isset($_SESSION['user'])) { ?>
-            <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePage"></div>
+            <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePage" alt="Linedrawing, hand with lamp"></div>
         <?php }; ?>
 
         <!-- Namnet på sidan visas  -->
@@ -23,9 +23,9 @@
 
             <!-- Om användaren är inloggad och har en profilbild visas även profilbilden. -->
             <?php if (isset($_SESSION['user']['profile_picture'])) :  ?>
-                <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture">
+                <img src="uploads/<?php echo $_SESSION['user']['profile_picture'] ?>" class="home-picture" alt="Users profile-pic">
             <?php else : ?>
-                <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePageSmallImg"></div>
+                <div class="frontPageImg"> <img src="assets/images/idea.webp" class="homePageSmallImg" alt="Linedrawing, hand with lamp"></div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user'])) : ?>
