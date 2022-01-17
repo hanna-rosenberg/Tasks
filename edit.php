@@ -84,5 +84,31 @@
     </p>
 </div>
 
+<div class="delete-profile-form">
+    <form action="app/users/delete.php" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="delete-profile">Delete your profile by entering your password</label>
+            <input class="form-control" type="password" name="delete" id="delete" placeholder="Enter password" required>
+
+            <button type="submit" class="btn btn-dark">Delete profile</button>
+        </div>
+    </form>
+
+    <p class="error">
+        <?php if (isset($_SESSION['warning'])) :
+            echo $_SESSION['warning'];
+            unset($_SESSION['warning']);
+        endif;
+        ?>
+    </p>
+    <p class="sessionMessageEdit">
+        <?php if (isset($_SESSION['deleteMessage'])) :
+            echo $_SESSION['deleteMessage'];
+            unset($_SESSION['deleteMessage']);
+        endif; ?>
+    </p>
+    <?php print_r($_SESSION['user']) ?>
+</div>
+
 <?php
 require __DIR__ . '/views/footer.php'; ?>
