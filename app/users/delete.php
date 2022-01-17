@@ -32,6 +32,7 @@ if (isset($_POST['delete'])) {
         $statement->bindParam(':id', $userID, PDO::PARAM_INT);
         $statement->execute();
 
+        // Remove user from session
         unset($_SESSION['user']);
 
         redirect('/');

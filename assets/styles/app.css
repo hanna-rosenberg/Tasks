@@ -158,6 +158,13 @@ h1 {
 
 .btn.btn-light {
   margin-top: 2rem;
+  background-color: white;
+  border-color: white;
+}
+.btn.btn-light-done {
+  background-color: white;
+  border-color: white;
+  margin-bottom: 2rem;
 }
 input[type='file'] {
   width: 100%;

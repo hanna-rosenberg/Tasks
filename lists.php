@@ -143,6 +143,7 @@ $taskByDate = getTasksByDate($database);
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
+                                <button type="submit" class="btn btn-light-done">Mark everything as done</button>
                             </details>
 
                         <?php endif; ?>
