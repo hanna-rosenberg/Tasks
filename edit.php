@@ -87,7 +87,7 @@
 <div class="delete-profile-form">
     <form action="app/users/delete.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="delete-profile">Delete your profile by entering your password</label>
+            <label for="delete-profile">Delete your profile</label>
             <input class="form-control" type="password" name="delete" id="delete" placeholder="Enter password" required>
 
             <button type="submit" class="btn btn-dark">Delete profile</button>
