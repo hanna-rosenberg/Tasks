@@ -143,42 +143,46 @@ $taskByDate = getTasksByDate($database);
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                                <button type="submit" class="btn btn-light-done">Mark everything as done</button>
+                                <?php if ($taskItem['completed'] == 0) : ?>
+                                    <a href="/app/tasks/all-tasks-done.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as done</a>
+                                <?php else : ?>
+                                    <a href="/app/tasks/all-tasks-undone.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
+                                <?php endif; ?>
+                            <?php endif; ?>
                             </details>
 
-                        <?php endif; ?>
 
-                        <details>
-                            <summary>Create task</summary>
+                            <details>
+                                <summary>Create task</summary>
 
-                            <!-- Klickar man på Create task visas formsen nedan. -->
+                                <!-- Klickar man på Create task visas formsen nedan. -->
 
-                            <form action=" app/users/tasks.php" method="post">
-                                <input type="hidden" name="listName" value="<?php echo $listItem['id'] ?>" id="title">
+                                <form action=" app/users/tasks.php" method="post">
+                                    <input type="hidden" name="listName" value="<?php echo $listItem['id'] ?>" id="title">
 
-                                <div class="name-form">
-                                    <div class="mb-3 tasks">
-                                        <label for="title">Task-title</label>
-                                        <input class="form-control" type="title" name="title" id="title" required>
-                                    </div>
-
-                                    <div class="task-form">
+                                    <div class="name-form">
                                         <div class="mb-3 tasks">
-                                            <label for="task">Description</label>
-                                            <input class="form-control" type="task" name="task" id="task" required>
+                                            <label for="title">Task-title</label>
+                                            <input class="form-control" type="title" name="title" id="title" required>
                                         </div>
 
-                                        <div class="deadline-form">
+                                        <div class="task-form">
                                             <div class="mb-3 tasks">
-                                                <label for="deadline">Deadline</label>
-                                                <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
+                                                <label for="task">Description</label>
+                                                <input class="form-control" type="task" name="task" id="task" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-light">Add</button>
-                                        </div>
+                                            <div class="deadline-form">
+                                                <div class="mb-3 tasks">
+                                                    <label for="deadline">Deadline</label>
+                                                    <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
+                                                </div>
 
-                            </form>
-                        </details>
+                                                <button type="submit" class="btn btn-light">Add</button>
+                                            </div>
+
+                                </form>
+                            </details>
                     </td>
 
 

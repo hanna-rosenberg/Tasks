@@ -46,6 +46,12 @@ if (isset($_POST['id'])) {
     }
 }
 
+// Om knappen "Mark all tasks as done" är tryckt
+if (isset($_POST['all-done'])) {
+    echo 'All tasks done';
+    redirect('/today.php');
+}
+
 // Kanske inte så snyggt, men för att redirecta till today.php om man blippar i checkbox. som strukturen såg ut kom man till lists.php.
 if (isset($_POST['today'])) {
     redirect('/today.php');
