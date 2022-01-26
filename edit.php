@@ -107,7 +107,6 @@
             unset($_SESSION['deleteMessage']);
         endif; ?>
     </p>
-    <?php print_r($_SESSION['user']) ?>
 </div>
 
 <?php

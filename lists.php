@@ -6,6 +6,7 @@
 // Tar emot innehållet i arrayen och sparar det i en variabel som jag döper till $allLists.
 $allLists = fetchAllLists($database);
 $taskByDate = getTasksByDate($database);
+
 ?>
 
 <article>
