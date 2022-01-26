@@ -149,9 +149,7 @@ $taskByDate = getTasksByDate($database);
                                 <?php else : ?>
                                     <a href="/app/tasks/all-tasks-undone.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
                                 <?php endif; ?>
-                            <?php endif; ?>
                             </details>
-
 
                             <details>
                                 <summary>Create task</summary>
