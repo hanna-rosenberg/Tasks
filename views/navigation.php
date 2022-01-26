@@ -1,10 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark">
 
-    <?php if (isset($_SESSION['user']['profile_picture'])) : ?>
-        <div class="first-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
-
-    <?php endif; ?>
-
     <!-- <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a> -->
     <div class="logo">
         <h1>o</h1>
