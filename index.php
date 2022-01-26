@@ -29,7 +29,6 @@
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user'])) : ?>
-
                 <form method="get" action="/lists.php">
                     <button type="submit" class="btn btn-dark">Create list</button>
                 </form>

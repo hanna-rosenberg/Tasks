@@ -33,7 +33,6 @@ $taskByDate = getTasksByDate($database);
                 <!-- En foreach-loop som gör det möjligt att plocka ut de enskilda delarna i $allLists, som är det som returnas från funktionen fetchAllLists
                 (Allt från lists som är kopplat till den inloggade användarens id) -->
                 <?php foreach ($allLists as $listItem) :
-
                     // Här sparar jag det jag får från funktionen getTaskByListId (allt från tasks med visst list-id) och lägger det i variabeln $tasksById.
                     $tasksById = getTaskByListId($database, $listItem['id']); ?>
 
@@ -86,7 +85,6 @@ $taskByDate = getTasksByDate($database);
                                     <tbody>
                                         <!-- En foreach-loop som skriver ut alla tasks tillhörande den inloggade användaren -->
                                         <?php foreach ($tasksBylistId as $taskItem) : ?>
-
                                             <tr>
                                                 <td class="done">
                                                     <ul>
