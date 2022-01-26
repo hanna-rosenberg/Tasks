@@ -34,3 +34,10 @@ Tested by the following people:
 
 1. Jennifer Andersson
 2. Johanna Jönsson
+
+# Wunderlist+
+
+2 additional features by [Marcus Hägerstrand](https://github.com/marcusxyz)
+
+- As a user I'm able to delete my account along with all tasks and lists.
+- As a user I'm able to mark all tasks in a list as completed with one click.
