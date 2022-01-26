@@ -150,38 +150,40 @@ $taskByDate = getTasksByDate($database);
                                     <a href="/app/tasks/all-tasks-undone.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
                                 <?php endif; ?>
                             </details>
+                        <?php endif; ?>
 
-                            <details>
-                                <summary>Create task</summary>
 
-                                <!-- Klickar man på Create task visas formsen nedan. -->
+                        <details>
+                            <summary>Create task</summary>
 
-                                <form action=" app/users/tasks.php" method="post">
-                                    <input type="hidden" name="listName" value="<?php echo $listItem['id'] ?>" id="title">
+                            <!-- Klickar man på Create task visas formsen nedan. -->
 
-                                    <div class="name-form">
+                            <form action=" app/users/tasks.php" method="post">
+                                <input type="hidden" name="listName" value="<?php echo $listItem['id'] ?>" id="title">
+
+                                <div class="name-form">
+                                    <div class="mb-3 tasks">
+                                        <label for="title">Task-title</label>
+                                        <input class="form-control" type="title" name="title" id="title" required>
+                                    </div>
+
+                                    <div class="task-form">
                                         <div class="mb-3 tasks">
-                                            <label for="title">Task-title</label>
-                                            <input class="form-control" type="title" name="title" id="title" required>
+                                            <label for="task">Description</label>
+                                            <input class="form-control" type="task" name="task" id="task" required>
                                         </div>
 
-                                        <div class="task-form">
+                                        <div class="deadline-form">
                                             <div class="mb-3 tasks">
-                                                <label for="task">Description</label>
-                                                <input class="form-control" type="task" name="task" id="task" required>
+                                                <label for="deadline">Deadline</label>
+                                                <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
                                             </div>
 
-                                            <div class="deadline-form">
-                                                <div class="mb-3 tasks">
-                                                    <label for="deadline">Deadline</label>
-                                                    <input class="form-control" type="date" name="deadline" id="deadline" placeholder="write ">
-                                                </div>
+                                            <button type="submit" class="btn btn-light">Add</button>
+                                        </div>
 
-                                                <button type="submit" class="btn btn-light">Add</button>
-                                            </div>
-
-                                </form>
-                            </details>
+                            </form>
+                        </details>
                     </td>
 
 
