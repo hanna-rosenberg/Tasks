@@ -62,6 +62,7 @@ $taskByDate = getTasksByDate($database);
                             </ul>
                         </div>
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
+                        <?php var_dump($listItem['id']); ?>
                         <!-- Om storleken av $tasksBylistId är större än 0 visas bara " show tasks". Annars visas den ej. -->
                         <?php if (count($tasksBylistId) > 0) : ?>
                             <details>
@@ -145,9 +146,9 @@ $taskByDate = getTasksByDate($database);
                                     </tbody>
                                 </table>
                                 <?php if ($taskItem['completed'] == 0) : ?>
-                                    <a href="/app/tasks/all-tasks-done.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as done</a>
+                                    <a href="/app/tasks/all-tasks-done.php?id=<?= $listItem['id'] ?>" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as done</a>
                                 <?php else : ?>
-                                    <a href="/app/tasks/all-tasks-undone.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
+                                    <a href="/app/tasks/all-tasks-undone.php?id=<?= $listItem['id'] ?>" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
                                 <?php endif; ?>
                             </details>
                         <?php endif; ?>
