@@ -5,7 +5,6 @@
 
     <h1>Login</h1>
 
-
     <!-- Form for login -->
     <form action="app/users/login.php" method="post">
 
@@ -23,8 +22,7 @@
             <small class="form-text">Please provide with your password or passphrase</small>
         </div>
 
-
-        <!-- Om det skapats ett SESSION['error'], dvs att lösenordet inte matchade med den mail som finns i databasen, så skall ett errormeddelande 
+        <!-- Om det skapats ett SESSION['error'], dvs att lösenordet inte matchade med den mail som finns i databasen, så skall ett errormeddelande
         skrivas ut på sidan. Därefter unsetas $_SESSION error för att jag kan använda session för andra felmeddelanden.-->
         <div>
             <p class="error">
@@ -36,10 +34,8 @@
             </p>
         </div>
 
-
         <!-- Knapp för att logga in -->
         <button type="submit" class="btn btn-dark">Login</button>
-
 
     </form>
 

@@ -1,7 +1,6 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-
 <!-- Hittar den aktuella listan baserat på listans ID och hämtar den från databasen och lägger den i en variabel som heter $list -->
 <?php
 if (isset($_POST['id'])) {

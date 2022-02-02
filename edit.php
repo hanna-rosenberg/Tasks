@@ -6,15 +6,12 @@
 
 <div class="picture-form">
 
-
     <!-- Form för att välja profilbild -->
     <form action="app/users/edit.php" method="post" enctype="multipart/form-data">
-
         <div class="mb-3">
             <label for="avatar">Choose your profile-picture</label>
             <input type="file" accept=".jpg, .jpeg, .png" name="avatar" id="avatar" required>
             <button type="submit" class="btn btn-dark">Save</button>
-
         </div>
 
         <!-- Om man har lagt upp en fil i fältet 'avatar' så skapas $_SESSION[message] - se den andra edit.php. Här kollar man om det finns en
@@ -25,6 +22,7 @@
                 unset($_SESSION['message']); ?>
             <?php endif; ?>
         </p>
+
         <!-- Finns det en profile_picture i users-arrayen visas den här. -->
         <?php if (isset($_SESSION['user']['profile_picture'])) : ?>
             <div class="profile-picture"><img src="/../uploads/<?php echo $_SESSION['user']['profile_picture'] ?>"></div>
@@ -40,7 +38,6 @@
         <div class="mb-3">
             <label for="email">Change your email-address</label>
             <input class="form-control" type="email" name="email" id="email" placeholder="email@email.com" required>
-
             <button type="submit" class="btn btn-dark">Save</button>
         </div>
     </form>
@@ -62,13 +59,11 @@
         <div class="mb-3">
             <label for="password">Change your password</label>
             <input class="form-control" type="password" name="password" id="password" required>
-
             <button type="submit" class="btn btn-dark">Save</button>
         </div>
     </form>
 
     <!-- Här kollar jag om det finns ett passwordMessage i SESSION, se andra edit.php. Om den är satt visas meddelandet "your password has changed". -->
-
     <p class="error">
         <?php if (isset($_SESSION['error'])) :
             echo $_SESSION['error'];
@@ -76,6 +71,7 @@
         endif;
         ?>
     </p>
+
     <p class="sessionMessageEdit">
         <?php if (isset($_SESSION['passwordMessage'])) :
             echo $_SESSION['passwordMessage'];

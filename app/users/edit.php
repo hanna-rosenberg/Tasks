@@ -44,8 +44,6 @@ if (isset($_FILES['avatar'])) {
     $_SESSION['message'] = "Profile-picture is sucessfully uploaded";
 }
 
-
-
 //Här kommer kod för att byta e-post! Om det ligger något i POST från forumläret som heter email så...
 if (isset($_POST['email'])) {
     //Hämtar, "rengör" det man skrivit in i formuläret, ser till att det är en email, och lägger den då nya e-post-adressen i en variabel som heter $new.
@@ -76,7 +74,6 @@ if (isset($_POST['email'])) {
     $_SESSION['emailMessage'] = "Your email has changed to: " . $_SESSION['user']['email'];
 }
 ?>
-
 
 <!-- Här kommer kod för att byta lösenord. Om något fyllts i i formuläret 'password' så.. -->
 <?php if (isset($_POST['password'])) :

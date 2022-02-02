@@ -17,7 +17,7 @@
 
     <div class="contentFrontpage">
 
-        <!-- Om användaren är inloggad visas kontots angivna namn efter Welcome, följt av frågan "What do you want to do och två knappar -->
+        <!-- Om användaren är inloggad visas kontots angivna namn efter Welcome. -->
         <?php if (isset($_SESSION['user'])) : ?>
             <p class="greeting">Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
 
@@ -29,7 +29,6 @@
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user'])) : ?>
-                <!-- Måste man göra såhär för att skickas till en annan sida? XXX -->
                 <form method="get" action="/lists.php">
                     <button type="submit" class="btn btn-dark">Create list</button>
                 </form>
@@ -42,9 +41,6 @@
             <?php endif; ?>
         <?php endif;
         ?>
-
-
-
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
