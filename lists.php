@@ -62,7 +62,6 @@ $taskByDate = getTasksByDate($database);
                             </ul>
                         </div>
                         <?php $tasksBylistId = fetchTasks($database, $listItem['id']); ?>
-                        <?php var_dump($listItem['id']); ?>
                         <!-- Om storleken av $tasksBylistId är större än 0 visas bara " show tasks". Annars visas den ej. -->
                         <?php if (count($tasksBylistId) > 0) : ?>
                             <details>
