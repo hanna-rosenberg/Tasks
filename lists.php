@@ -147,9 +147,9 @@ $taskByDate = getTasksByDate($database);
                                     </tbody>
                                 </table>
                                 <?php if ($taskItem['completed'] == 0) : ?>
-                                    <a href="/app/tasks/all-tasks-done.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as done</a>
+                                    <a href="/app/tasks/all-tasks-done.php?id=<?= $listItem['id'] ?>" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as done</a>
                                 <?php else : ?>
-                                    <a href="/app/tasks/all-tasks-undone.php" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
+                                    <a href="/app/tasks/all-tasks-undone.php?id=<?= $listItem['id'] ?>" class="btn btn-light-done" name="all-done" id="all-done">Mark all tasks as undone</a>
                                 <?php endif; ?>
                             </details>
                         <?php endif; ?>

@@ -4,13 +4,8 @@ require __DIR__ . '/../autoload.php';
 
 // Om knappen "Mark all tasks as done" är tryckt
 
-$allLists = fetchAllLists($database);
-
 // Get list ID
-foreach ($allLists as $listItem) {
-    $listID = $listItem['id'];
-}
-
+$listID = $_GET['id'];
 $completed = false;
 
 $statement = $database->prepare('UPDATE tasks SET completed = :completed WHERE list_id = :list_id');
